@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --color-main: #412e49;
+}
+
+@layer components {
+  .container-base {
+    @apply mx-auto max-w-[1280px] px-5;
+  }
+}
