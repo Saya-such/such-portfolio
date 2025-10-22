@@ -3,17 +3,19 @@ import Rhoms from "@/components/Rhoms.astro";
 ---
 
 <section id="concept">
-  <div class="concept-container container-base h-svh w-svw bg-main">
-    <div class="concept-content">
-      <h1>小さなカケラから<br>
-      <span>大きな幸せ</span>を</h1>
-      <div class="concept-txt">
+  <div class="concept-container container-base relative h-svh w-svw bg-main">
+    <div class="concept-content grid grid-rows-3 h-full">
+      <div class="concept-tit self-end">
+        <h1 class="text-white">小さなカケラから<br>
+          <span>大きな幸せ</span>を</h1>
+      </div>
+      <div class="concept-txt text-white row-start-3 self-end">
         <p>suchとして<br class="lg:hidden">個人でWebサイト制作を<br class="lg:hidden">行っています。</p>
         <p>想いやりの心を大切に、<br class="lg:hidden">丁寧なお仕事を心がけています。</p>
       </div>
     </div>
-    <div class="concept-img">
-      <img src="./images/hand.png" alt="幸せのカケラを拾う手">
+    <div class="concept-img absolute top-2/5 w-2/3 right-1.5">
+      <img src="./images/hand.png" alt="幸せのカケラを拾う手" class="w-full h-full object-contain">
     </div>
   </div>
   <Rhoms />
