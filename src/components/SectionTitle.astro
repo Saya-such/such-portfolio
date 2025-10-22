@@ -1,0 +1,9 @@
+---
+interface Props {
+  title: string;
+  sub: string;
+}
+
+const {title, sub} = Astro.props as Props;
+---
+<h2>{title}<span>{sub}</span></h2>
