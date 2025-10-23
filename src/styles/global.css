@@ -13,3 +13,7 @@
     @apply mx-auto max-w-[1280px] px-5;
   }
 }
+
+p {
+  padding: 0 0 24px 0;
+}

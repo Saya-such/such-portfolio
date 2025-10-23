@@ -1,10 +1,12 @@
 ---
 interface Props {
   down?: boolean;
+  other?: string;
 }
 
-const {down = false} = Astro.props as Props;
+const {down = false, other} = Astro.props as Props;
 ---
-<div class="rhoms">
-  <img src="./images/rhoms.png" alt="">
+<div class="rhoms absolute w-screen h-full -bottom-5 left-0">
+  <img src="./images/rhoms-sp.webp" alt="" class="lg:hidden w-full h-full object-contain">
+  <img src="./images/rhoms.webp" alt="" class="hidden lg:block w-full h-full object-contain">
 </div>
