@@ -15,8 +15,19 @@ import Footer from "@/components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="./sitemap-index.xml" />
+    <!-- fonts -->
+    <script>
+    (function(d) {
+      var config = {
+        kitId: 'ivw1jas',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+    </script>
   </head>
-  <body class="h-screen w-screen overflow-x-hidden">
+  <body class="font-primary h-screen w-screen overflow-x-hidden tracking-widest text-sm lg:text-base leading-loose">
     <Header />
 
     <Main>
@@ -24,5 +35,8 @@ import Footer from "@/components/Footer.astro";
     </Main>
 
     <Footer />
+    <div class="page-bg fixed w-screen h-screen top-0 left-0 -z-100">
+      <img src="./images/bg.webp" alt="" class="w-full h-full object-cover">
+    </div>
   </body>
 </html>

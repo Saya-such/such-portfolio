@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+  --font-primary:
+    yu-gothic-pr6n, "YuGothic", "Yu Gothic", "ヒラギノ角ゴシック",
+    "Hiragino Sans", var(--font-sans), sans-serif;
+  --font-en:
+    "gill-sans-nova", "Trebuchet MS", "YuGothic", "Yu Gothic",
+    "ヒラギノ角ゴシック", "Hiragino Sans", var(--font-sans), sans-serif;
+  --font-sub:
+    "YuGothic", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans",
+    var(--font-sans), sans-serif;
+  --color-main: #412e49;
+}
+
+@layer components {
+  .container-base {
+    @apply mx-auto max-w-[1280px] px-6;
+  }
+}
+
+@layer base {
+  p {
+    @apply pb-6;
+  }
+}

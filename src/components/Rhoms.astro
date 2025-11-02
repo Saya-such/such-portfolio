@@ -1,0 +1,31 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  down?: boolean;
+  others?: string;
+}
+
+const { down = false, others } = Astro.props as Props;
+
+const rhomsStyle = cn(
+  "rhoms absolute w-screen h-auto left-0 aspect-4/3",
+  {
+    "-scale-y-100": down,
+  },
+  others,
+);
+---
+
+<div class={rhomsStyle}>
+  <img
+    src="./images/rhoms-sp.webp"
+    alt=""
+    class="h-full w-full object-contain lg:hidden"
+  />
+  <img
+    src="./images/rhoms.webp"
+    alt=""
+    class="hidden h-full w-full object-contain lg:block"
+  />
+</div>

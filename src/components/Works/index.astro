@@ -1,0 +1,17 @@
+---
+import Button from "@/components/Button.astro";
+import Rhoms from "@/components/Rhoms.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import WorksItem from "./WorksItem.astro";
+---
+
+<section id="works" class="relative">
+  <div class="works-container container-base pt-8 pb-50">
+    <SectionTitle title="Works" sub="制作したもの" />
+    <ul class="works-list">
+      <WorksItem />
+    </ul>
+    <Button text="View more" link="#" other="my-3" />
+    <Rhoms down={true} others="bottom-0 translate-y-1/12" />
+  </div>
+</section>

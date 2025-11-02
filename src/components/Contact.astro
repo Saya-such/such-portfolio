@@ -1,0 +1,20 @@
+---
+import Button from "@/components/Button.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+---
+
+<section id="contact" class="bg-main">
+  <div class="contact-container container-base py-10">
+    <SectionTitle title="Contact" sub="お問い合わせ" white={true} />
+    <p class="text-center text-white">
+      Webサイト制作にお困りの際は<br
+        class="lg:hidden"
+      />まずはお気軽にご相談ください！<br />
+      お仕事のご依頼の他、<br
+        class="lg:hidden"
+      />外部パートナーとしてのお誘いなども含め<br />
+      ぜひご連絡いただけると嬉しいです！
+    </p>
+    <Button text="Get in Touch" link="#" other="py-5" subColor={true} />
+  </div>
+</section>
