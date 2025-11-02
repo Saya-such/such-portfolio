@@ -1,9 +1,35 @@
 ---
+import cn from "@/libs/cn";
+
 interface Props {
   title: string;
-  sub: string;
+  sub?: string;
+  service?: boolean;
+  white?: boolean;
 }
 
-const {title, sub} = Astro.props as Props;
+const { title, sub, service = false, white = false } = Astro.props as Props;
+
+const titleStyle = cn(
+  "pb-8 text-center lg:pb-16",
+  white ? "text-white" : "text-main",
+);
 ---
-<h2>{title}<span>{sub}</span></h2>
+
+<h2 class={titleStyle}>
+  <span class="font-en block pb-1 text-5xl tracking-widest lg:text-8xl"
+    >{title}</span
+  >
+  {
+    service ? (
+      <span>
+        <span class="font-en pr-0.75 text-base tracking-wider lg:text-2xl">
+          such
+        </span>
+        ができること
+      </span>
+    ) : (
+      <span class="text-sm lg:text-lg">{sub}</span>
+    )
+  }
+</h2>

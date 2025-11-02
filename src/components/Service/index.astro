@@ -1,0 +1,13 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import ServiceItem from "./ServiceItem.astro";
+---
+
+<section id="service" class="pt-50">
+  <div class="service-container container-base">
+    <SectionTitle title="Service" service={true} />
+    <ul class="service-list my-2">
+      <ServiceItem />
+    </ul>
+  </div>
+</section>

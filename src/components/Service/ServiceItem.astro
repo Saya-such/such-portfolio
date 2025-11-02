@@ -1,0 +1,56 @@
+---
+import cn from "@/libs/cn";
+
+const itemStyle = cn(
+  "service-item text-main relative bg-white mb-20 pt-11 px-6 pb-6 shadow-md",
+);
+
+const titleStyle = cn("font-en invisible lg:visible");
+
+const subTitleStyle = cn("text-base font-sub font-bold");
+
+const numStyle = cn("font-en absolute top-4 right-5 text-base");
+
+const imgStyle = cn("absolute left-3 -top-2 object-contain w-4 h-12");
+
+const bgStyle = cn(
+  "service-bg absolute w-full h-full bg-white -z-2 shadow-md top-1 left-0 rotate-2",
+);
+
+const bgStyle2 = cn(
+  "service-bg2 absolute w-full h-full bg-main -z-3 shadow-md top-2.5 left-0 rotate-4",
+);
+---
+
+<li class={itemStyle}>
+  <h3 class={titleStyle}>Web Development</h3>
+  <span class={numStyle}>01</span>
+  <p class={subTitleStyle}>コーディング</p>
+  <p>
+    現在、コーディングのご依頼を中心に受けております。<br />
+    投稿機能(WordPress)の連携及びカスタムフィールドや検索機能のカスタマイズ等も対応可能です。<br
+    />
+    外部パートナーとしてのお誘いなども含め、ぜひお気軽にご相談いただけると嬉しいです！
+  </p>
+  <img src="./images/service-clip.png" alt="" class={imgStyle} />
+  <div class={bgStyle}></div>
+  <div class={bgStyle2}></div>
+</li>
+<li class={itemStyle}>
+  <h3 class={titleStyle}>Web Design</h3>
+  <span class={numStyle}>02</span>
+  <p class={subTitleStyle}>Webサイト制作</p>
+  <p>
+    サイト設計からデザイン・実装まで、Webサイトの制作をまるまるご依頼いただけます。<br
+    />
+    ご希望の場合、サーバー管理や投稿機能のメンテナンスも含めた保守管理も可能です。<br
+    />
+    「Webサイトが欲しいけど、どうしたら良いか分からない」という方も、ぜひ一度ご相談ください。
+  </p>
+  <p class="hidden lg:block">
+    ※ 現在、デザインのみのご依頼は積極的には受けておりません。
+  </p>
+  <img src="./images/service-clip.png" alt="" class={imgStyle} />
+  <div class={bgStyle}></div>
+  <div class={bgStyle2}></div>
+</li>

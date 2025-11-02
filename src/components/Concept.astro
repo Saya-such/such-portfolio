@@ -2,21 +2,36 @@
 import Rhoms from "@/components/Rhoms.astro";
 ---
 
-<section id="concept" class="relative">
-  <div class="concept-container container-base relative h-svh w-svw bg-main">
-    <div class="concept-content grid grid-rows-3 h-full">
+<section id="concept" class="relative h-screen w-screen">
+  <div class="concept-container container-base bg-main h-full">
+    <div class="concept-content grid h-full grid-rows-3">
       <div class="concept-tit self-end">
-        <h1 class="text-white text-[28px]"><span class="block pb-3 pl-1">小さなカケラから</span>
-          <span class="text-5xl inline-block pr-2">大きな幸せ</span>を</h1>
+        <h1 class="text-[28px] text-white">
+          <span class="block pb-3 pl-1">小さなカケラから</span>
+          <span class="inline-block pr-2 text-5xl">大きな幸せ</span>を
+        </h1>
       </div>
-      <div class="concept-txt text-white row-start-3 ">
-        <p><span class="font-en tracking-wider pr-0.5">such</span>として<br class="lg:hidden">個人でWebサイト制作を<br class="lg:hidden">行なっています。</p>
-        <p>想いやりの心を大切に、<br class="lg:hidden">丁寧なお仕事を心がけています。</p>
+      <div class="concept-txt row-start-3 text-white">
+        <p>
+          <span class="font-en pr-0.75 text-base tracking-wider">such</span
+          >として<br class="lg:hidden" />個人でWebサイト制作を<br
+            class="lg:hidden"
+          />行なっています。
+        </p>
+        <p>
+          想いやりの心を大切に、<br
+            class="lg:hidden"
+          />丁寧なお仕事を心がけています。
+        </p>
       </div>
     </div>
-    <div class="concept-img absolute top-3/7 w-3/5 right-1.5">
-      <img src="./images/hand.png" alt="幸せのカケラを拾う手" class="w-full h-full object-contain">
+    <div class="concept-img absolute top-3/7 right-1.5 w-3/5">
+      <img
+        src="./images/hand.png"
+        alt="幸せのカケラを拾う手"
+        class="h-full w-full object-contain"
+      />
     </div>
   </div>
-  <Rhoms />
+  <Rhoms others="bottom-0 translate-y-11/12" />
 </section>

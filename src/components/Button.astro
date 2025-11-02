@@ -1,13 +1,27 @@
 ---
+import cn from "@/libs/cn";
+
 interface Props {
   text: string;
   link: string;
+  other?: string;
+  subColor?: boolean;
 }
 
-const {text, link} = Astro.props as Props;
+const { text, link, other, subColor = false } = Astro.props as Props;
+
+const btnStyle = cn("font-en w-full", other);
+
+const linkStyle = cn(
+  "relative text-lg block m-auto py-4 w-4/5 bg-main rounded-full before:absolute before:h-9 before:w-9 before:top-1/2 before:bottom-1/2 before:right-3 before:opacity-50 before:rounded-full before:-translate-y-1/2 before:pointer-events-none after:absolute after:h-1 after:w-1 after:bg-white after:rotate-45 after:top-1/2 after:right-7 after:-translate-y-1/2 after:pointer-events-none",
+  subColor
+    ? "text-main bg-emerald-100 before:bg-main"
+    : "text-white bg-main before:bg-white",
+);
 ---
-<button>
-  <a href={link}>
+
+<button class={btnStyle}>
+  <a href={link} class={linkStyle}>
     {text}
   </a>
 </button>
