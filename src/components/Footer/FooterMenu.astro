@@ -1,0 +1,27 @@
+---
+import menuItemData from "@/data/menuItemData";
+---
+
+<ul class="menu flex flex-wrap px-1 pb-10">
+  {
+    menuItemData.map((item) => (
+      <li class="menu-item basis-1/2 pb-5">
+        <a
+          href={item.link}
+          target={item.blank ? "_blank" : undefined}
+          class="font-en relative text-lg underline"
+        >
+          {item.text}
+          {item.blank && (
+            <img
+              src="./images/footer-link.png"
+              alt=""
+              aria-hidden="true"
+              class="absolute -top-1 -right-3 h-2 w-2 object-contain"
+            />
+          )}
+        </a>
+      </li>
+    ))
+  }
+</ul>
