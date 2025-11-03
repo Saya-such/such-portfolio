@@ -11,6 +11,7 @@
     "YuGothic", "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans",
     var(--font-sans), sans-serif;
   --color-main: #412e49;
+  --color-dark: #332738;
 }
 
 @layer components {
