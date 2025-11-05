@@ -1,0 +1,34 @@
+---
+import cn from "@/libs/cn";
+import DiamondShape from "@/components/DiamondShape.astro";
+
+interface Props {
+  text?: "MENU" | "CLOSE";
+  other?: string;
+}
+
+const { text = "MENU", other } = Astro.props as Props;
+
+const wrapStyle = cn(
+  `menu-${text} col-start-1 row-start-1 grid h-full w-full grid-rows-2 content-between ${other}`,
+);
+
+const closeLineStyle = (rotate: number) =>
+  cn(
+    `absolute inset-0 h-px w-3 -translate-x-[2.5px] translate-y-[2.5px] rotate-${rotate} bg-white`,
+  );
+---
+
+<div id={`menu-${text}`} class={wrapStyle}>
+  {
+    text === "CLOSE" ? (
+      <DiamondShape size={1.5} color="transparent">
+        <span class={closeLineStyle(0)} />
+        <span class={closeLineStyle(90)} />
+      </DiamondShape>
+    ) : (
+      <DiamondShape size={1.5} />
+    )
+  }
+  <span class="menu-label font-en text-xs tracking-wide">{text}</span>
+</div>
