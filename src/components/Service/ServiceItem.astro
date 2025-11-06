@@ -1,46 +1,83 @@
 ---
 import cn from "@/libs/cn";
 
-const itemStyle = cn(
-  "service-item text-main relative bg-white mb-20 pt-11 px-6 pb-6 shadow-md",
+const itemStyle = (num: number) =>
+  cn(
+    "service-item text-main relative mb-20 pt-11 px-6 pb-6 md:w-10/11 md:mb-24 md:pt-16 md:px-10 md:pb-8 lg:mb-30 lg:pt-24 lg:px-14 lg:pb-10 xl:w-3/4",
+    num % 2 === 0 && "md:ml-auto",
+  );
+
+const headStyle = cn("service-head flex flex-col-reverse");
+
+const titleStyle = cn(
+  "text-base font-sub font-bold pt-8 pb-5 md:pt-2 md:pb-4 lg:py-5 lg:text-xl",
 );
 
-const titleStyle = cn("font-en invisible lg:visible");
-
-const subTitleStyle = cn("text-base font-sub font-bold");
-
-const numStyle = cn("font-en absolute top-4 right-5 text-base");
-
-const imgStyle = cn("absolute left-3 -top-2 object-contain w-4 h-12");
-
-const bgStyle = cn(
-  "service-bg absolute w-full h-full bg-white -z-2 shadow-md top-1 left-0 rotate-2",
+const subTitleStyle = cn(
+  "font-en hidden opacity-8 text-[50px] tracking-wider leading-none -translate-x-1 md:block lg:text-6xl lg:tracking-widest xl:-translate-x-2",
 );
 
-const bgStyle2 = cn(
-  "service-bg2 absolute w-full h-full bg-main -z-3 shadow-md top-2.5 left-0 rotate-4",
-);
+const textStyle = cn("lg:text-lg lg:leading-9");
+
+const numStyle = (num: number) =>
+  cn(
+    "font-en absolute top-4 right-5 text-base md:top-2 lg:top-3 lg:text-2xl",
+    num % 2 === 0 ? "md:left-5 md:right-auto lg:left-8" : "lg:right-8",
+  );
+
+const imgStyle = (num: number) =>
+  cn(
+    "absolute left-3 -top-2 object-contain w-4 h-12 md:top-0 lg:w-7 lg:h-24 lg:-top-2",
+    num % 2 === 0
+      ? "md:-scale-x-100 md:left-auto md:right-3 lg:right-5 xl:right-8"
+      : "lg:left-5 xl:left-8",
+  );
+
+const bgStyle = (num: number) =>
+  cn(
+    "service-bg absolute w-full h-full bg-white -z-1 shadow-md top-0 left-0",
+    num % 2 === 0 ? "md:rotate-2" : "md:-rotate-2",
+  );
+
+const bgStyle2 = (num: number) =>
+  cn(
+    "service-bg2 absolute w-full h-full bg-white -z-2 shadow-md top-1 left-0 rotate-2 lg:top-2",
+    num % 2 === 0
+      ? "md:-left-3 md:rotate-1 lg:-left-4"
+      : "md:left-3 md:-rotate-1 lg:left-4",
+  );
+
+const bgStyle3 = (num: number) =>
+  cn(
+    "service-bg3 absolute w-full h-full bg-main -z-3 shadow-md top-2.5 left-0 rotate-4 md:rotate-0 lg:top-5",
+    num % 2 === 0 ? "md:-left-5 lg:-left-7" : "md:left-5 lg:left-7",
+  );
 ---
 
-<li class={itemStyle}>
-  <h3 class={titleStyle}>Web Development</h3>
-  <span class={numStyle}>01</span>
-  <p class={subTitleStyle}>コーディング</p>
-  <p>
+<li class={itemStyle(1)}>
+  <div class={headStyle}>
+    <h3 class={titleStyle}>コーディング</h3>
+    <p class={subTitleStyle}>Web Development</p>
+  </div>
+  <span class={numStyle(1)}>01</span>
+  <p class={textStyle}>
     現在、コーディングのご依頼を中心に受けております。<br />
     投稿機能(WordPress)の連携及びカスタムフィールドや検索機能のカスタマイズ等も対応可能です。<br
     />
     外部パートナーとしてのお誘いなども含め、ぜひお気軽にご相談いただけると嬉しいです！
   </p>
-  <img src="./images/service-clip.png" alt="" class={imgStyle} />
-  <div class={bgStyle}></div>
-  <div class={bgStyle2}></div>
+  <img src="./images/service-clip.png" alt="" class={imgStyle(1)} />
+  <div class={bgStyle(1)}></div>
+  <div class={bgStyle2(1)}></div>
+  <div class={bgStyle3(1)}></div>
 </li>
-<li class={itemStyle}>
-  <h3 class={titleStyle}>Web Design</h3>
-  <span class={numStyle}>02</span>
-  <p class={subTitleStyle}>Webサイト制作</p>
-  <p>
+<li class={itemStyle(2)}>
+  <div class={headStyle}>
+    <h3 class={titleStyle}>Webサイト制作</h3>
+    <p class={subTitleStyle}>Web Design</p>
+  </div>
+  <span class={numStyle(2)}>02</span>
+  <p class={textStyle}>
     サイト設計からデザイン・実装まで、Webサイトの制作をまるまるご依頼いただけます。<br
     />
     ご希望の場合、サーバー管理や投稿機能のメンテナンスも含めた保守管理も可能です。<br
@@ -50,7 +87,8 @@ const bgStyle2 = cn(
   <p class="hidden lg:block">
     ※ 現在、デザインのみのご依頼は積極的には受けておりません。
   </p>
-  <img src="./images/service-clip.png" alt="" class={imgStyle} />
-  <div class={bgStyle}></div>
-  <div class={bgStyle2}></div>
+  <img src="./images/service-clip.png" alt="" class={imgStyle(2)} />
+  <div class={bgStyle(2)}></div>
+  <div class={bgStyle2(2)}></div>
+  <div class={bgStyle3(2)}></div>
 </li>
