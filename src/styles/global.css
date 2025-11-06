@@ -16,7 +16,7 @@
 
 @layer components {
   .container-base {
-    @apply mx-auto max-w-[1280px] px-6;
+    @apply mx-auto max-w-[1280px] px-6 md:w-6/7 md:px-0;
   }
 }
 
