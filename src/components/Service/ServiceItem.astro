@@ -3,7 +3,7 @@ import cn from "@/libs/cn";
 
 const itemStyle = (num: number) =>
   cn(
-    "service-item text-main relative mb-20 pt-11 px-6 pb-6 md:w-10/11 md:mb-24 md:pt-16 md:px-10 md:pb-8 lg:mb-30 lg:pt-24 lg:px-14 lg:pb-10 xl:w-3/4",
+    "service-item text-main relative mb-20 pt-11 px-6 pb-6 md:w-10/11 md:mb-24 md:pt-16 md:px-10 md:pb-8 lg:mb-30 lg:pt-24 lg:px-14 lg:pb-10 xl:w-3/4 xl:px-20 xl:pb-15 2xl:py-25",
     num % 2 === 0 && "md:ml-auto",
   );
 
@@ -17,7 +17,7 @@ const subTitleStyle = cn(
   "font-en hidden opacity-8 text-[50px] tracking-wider leading-none -translate-x-1 md:block lg:text-6xl lg:tracking-widest xl:-translate-x-2",
 );
 
-const textStyle = cn("lg:text-lg lg:leading-9");
+const textStyle = cn("2xl:text-lg lg:leading-9 tracking-wider");
 
 const numStyle = (num: number) =>
   cn(
@@ -27,10 +27,10 @@ const numStyle = (num: number) =>
 
 const imgStyle = (num: number) =>
   cn(
-    "absolute left-3 -top-2 object-contain w-4 h-12 md:top-0 lg:w-7 lg:h-24 lg:-top-2",
+    "absolute left-3 -top-2 object-contain w-4 h-12 md:top-0 lg:w-7 lg:h-24 lg:-top-2 2xl:-top-1.5",
     num % 2 === 0
-      ? "md:-scale-x-100 md:left-auto md:right-3 lg:right-5 xl:right-8"
-      : "lg:left-5 xl:left-8",
+      ? "md:-scale-x-100 md:left-auto md:right-3 lg:right-5 xl:right-8 2xl:right-10"
+      : "lg:left-5 xl:left-8 2xl:left-10",
   );
 
 const bgStyle = (num: number) =>
@@ -84,7 +84,7 @@ const bgStyle3 = (num: number) =>
     />
     「Webサイトが欲しいけど、どうしたら良いか分からない」という方も、ぜひ一度ご相談ください。
   </p>
-  <p class="hidden lg:block">
+  <p class="hidden text-sm tracking-wider lg:block">
     ※ 現在、デザインのみのご依頼は積極的には受けておりません。
   </p>
   <img src="./images/service-clip.png" alt="" class={imgStyle(2)} />

@@ -7,10 +7,12 @@ import WorksItem from "./WorksItem.astro";
 
 <section id="works" class="relative">
   <div
-    class="works-container container-base pt-8 pb-50 md:pt-12 md:pb-80 lg:pt-20"
+    class="works-container container-base pt-8 pb-50 md:pt-12 md:pb-80 lg:pt-24 xl:pt-38 xl:pb-120 2xl:pt-70 2xl:pb-150"
   >
     <SectionTitle title="Works" sub="制作したもの" />
-    <ul class="works-list md:pt-2">
+    <ul
+      class="works-list m-auto max-w-5xl md:pt-2 lg:w-4/5 lg:pt-0 xl:pb-5 2xl:w-full 2xl:pt-6"
+    >
       <WorksItem />
     </ul>
     <Button text="View more" link="#" other="my-3 md:my-0" />
