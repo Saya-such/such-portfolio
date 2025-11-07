@@ -11,25 +11,26 @@ interface Props {
 const { title, sub, service = false, white = false } = Astro.props as Props;
 
 const titleStyle = cn(
-  "pb-8 text-center lg:pb-16",
+  "pb-8 text-center lg:pb-14",
   white ? "text-white" : "text-main",
 );
 ---
 
 <h2 class={titleStyle}>
-  <span class="font-en block pb-1 text-5xl tracking-widest lg:text-8xl"
+  <span
+    class="font-en block pb-1 text-5xl tracking-widest lg:pb-3 lg:text-8xl lg:tracking-wider"
     >{title}</span
   >
   {
     service ? (
-      <span>
-        <span class="font-en pr-0.75 text-base tracking-wider lg:text-2xl">
+      <span class="lg:text-lg">
+        <span class="font-en text-base tracking-wider lg:pr-0 lg:text-2xl">
           such
         </span>
         ができること
       </span>
     ) : (
-      <span class="text-sm lg:text-lg">{sub}</span>
+      <span class="text-sm tracking-wider lg:text-lg">{sub}</span>
     )
   }
 </h2>
