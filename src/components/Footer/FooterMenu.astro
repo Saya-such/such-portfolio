@@ -2,14 +2,14 @@
 import menuItemData from "@/data/menuItemData";
 ---
 
-<ul class="menu flex flex-wrap px-1 pb-10">
+<ul class="menu grid grid-cols-2 px-1 pb-10 md:grid-cols-3 md:px-2 md:pb-0">
   {
-    menuItemData.map((item) => (
-      <li class="menu-item basis-1/2 pb-5">
+    menuItemData.map((item, i) => (
+      <li class={`menu-item pb-5 ${i === 2 ? "md:col-start-1" : ""}`}>
         <a
           href={item.link}
           target={item.blank ? "_blank" : undefined}
-          class="font-en relative text-lg underline"
+          class="font-en relative text-lg underline lg:text-2xl"
         >
           {item.text}
           {item.blank && (
