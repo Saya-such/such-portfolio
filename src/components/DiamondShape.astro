@@ -2,18 +2,19 @@
 import cn from "@/libs/cn";
 
 interface Props {
-  size?: number;
+  menu?: boolean;
   other?: string;
   color?: string;
 }
 
-const { size, other, color } = Astro.props as Props;
+const { menu = false, other, color } = Astro.props as Props;
 
 const style = cn(
-  "m-auto block rotate-45 bg-white md:h-2 md:w-2",
-  size ? `h-${size} w-${size}` : "h-1 w-1",
+  "m-auto block rotate-45 bg-white",
+  menu ? "h-[5px] w-[5px]" : "h-1 w-1",
   color ? `bg-${color}` : "bg-white",
   other,
+  "md:h-2 md:w-2",
 );
 ---
 
