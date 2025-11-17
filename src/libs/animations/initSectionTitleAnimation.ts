@@ -1,6 +1,6 @@
 import startBlurFadeInOnScroll from "@/libs/animations/startBlurFadeInOnScroll";
 
-const startSectionTitleAnimation = () => {
+const initSectionTitleAnimation = () => {
   const targets = document.querySelectorAll<HTMLElement>(".sec-tit");
 
   return Array.from(targets).map((target) => {
@@ -8,4 +8,4 @@ const startSectionTitleAnimation = () => {
   });
 };
 
-export default startSectionTitleAnimation;
+export default initSectionTitleAnimation;
