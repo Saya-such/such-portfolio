@@ -9,7 +9,7 @@ interface Props {
 const { down = false, others } = Astro.props as Props;
 
 const rhomsStyle = cn(
-  "rhoms absolute w-screen h-auto left-0 aspect-4/3 md:aspect-2/1",
+  "rhoms absolute w-screen left-0 -z-10 h-auto aspect-4/3 md:aspect-2/1",
   {
     "-scale-y-100": down,
   },
