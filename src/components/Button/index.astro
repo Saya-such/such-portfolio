@@ -21,7 +21,7 @@ const {
 const btnStyle = cn("font-en w-full", other);
 
 const linkStyle = cn(
-  "relative block m-auto py-4 bg-main rounded-full max-w-[400px] md:py-6 md:text-2xl 2xl:text-3xl 2xl:py-8",
+  "group/button relative block m-auto py-4 bg-main rounded-full duration-300 max-w-[400px] md:py-6 md:text-2xl 2xl:text-3xl 2xl:py-8 hover:opacity-90 hover:shadow-2xl",
   lg ? "w-full text-2xl" : "w-4/5 text-lg",
   subColor ? "text-main bg-emerald-100" : "text-white bg-main",
 );
@@ -31,8 +31,8 @@ const decoStyle = cn(
 );
 
 const circleStyle = cn(
-  "btn-circle pointer-events-none absolute top-0 left-0 h-full w-full rounded-full",
-  subColor ? "bg-main opacity-50" : "bg-[#9F95A3]",
+  "btn-circle pointer-events-none absolute top-0 left-0 h-full w-full rounded-full duration-300 group-hover/button:opacity-60 group-hover/button:scale-125",
+  subColor ? "bg-[#878D98]" : "bg-[#9F95A3]",
 );
 ---
 
@@ -40,7 +40,9 @@ const circleStyle = cn(
   <a href={link} class={linkStyle}>
     {text}
     <div class={decoStyle}>
-      <DiamondShape other="absolute inset-0 z-1" />
+      <DiamondShape
+        other="btn-dia absolute inset-0 z-1 duration-300 group-hover/button:scale-90"
+      />
       <div class={circleStyle}></div>
     </div>
   </a>
