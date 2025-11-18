@@ -38,6 +38,7 @@ import Rhoms from "@/components/Rhoms.astro";
       </div>
     </div>
     <div
+      id="concept-img"
       class="concept-img absolute top-3/7 right-1.5 w-3/5 md:top-1/5 md:w-3/7 lg:top-1/6 lg:right-0 xl:w-4/9 2xl:top-1/12 2xl:w-1/2 portrait:md:top-4/9 portrait:md:right-5 portrait:md:w-5/9 portrait:lg:top-7/15"
     >
       <img
@@ -49,3 +50,9 @@ import Rhoms from "@/components/Rhoms.astro";
   </div>
   <Rhoms others="bottom-0 translate-y-11/12" />
 </section>
+
+<script>
+  import manageConcept from "./manageConcept";
+
+  manageConcept();
+</script>
