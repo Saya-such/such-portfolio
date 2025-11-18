@@ -8,7 +8,7 @@ const createButtonAnimationTimeline = (target: HTMLElement) => {
   tl.to(target, {
     repeat: -1,
     duration: 3.0,
-    repeaDelay: 2.0,
+    repeatDelay: 1.0,
     keyframes: [
       { scale: 1.0, opacity: 1.0, duration: 0.08 },
       { scale: 1.2, opacity: 1.0, duration: 0.02 },
@@ -21,7 +21,7 @@ const createButtonAnimationTimeline = (target: HTMLElement) => {
     {
       repeat: -1,
       duration: 3.0,
-      repeaDelay: 2.0,
+      repeatDelay: 1.0,
       keyframes: [
         { scale: 1.0, duration: 0.1 },
         { scale: 0.9, duration: 0.1 },
