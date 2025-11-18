@@ -1,11 +1,14 @@
+import startBlurFadeInOnScroll from "@/libs/animations/startBlurFadeInOnScroll";
 import createConceptImageLoopTimeline from "./createConceptImageLoopTimeline";
 
 const manageConcept = () => {
-  const imgEl = document.getElementById("concept-img");
+  const tit = document.getElementById("concept-tit");
+  const img = document.getElementById("concept-img");
 
-  if (!imgEl) return;
+  if (!tit || !img) return;
 
-  createConceptImageLoopTimeline(imgEl);
+  startBlurFadeInOnScroll({ target: tit });
+  createConceptImageLoopTimeline(img);
 };
 
 export default manageConcept;
