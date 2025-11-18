@@ -1,15 +1,18 @@
----
-
----
-
-<div id="hero" class="bg-main relative h-screen w-svw">
+<div id="hero" class="bg-main relative h-screen w-screen">
   <div
     class="hero-container relative mx-auto h-full w-full max-w-[1280px] px-5"
   >
     <img
       src="./images/logo-wh.png"
       alt="suchのロゴ"
+      id="hero-logo"
       class="absolute inset-0 m-auto h-25 w-25 md:h-32 md:w-32 lg:h-36 lg:w-36 2xl:h-50 2xl:w-50"
     />
   </div>
 </div>
+
+<script>
+  import initHeroAnimation from "./initHeroAnimation";
+
+  initHeroAnimation();
+</script>
