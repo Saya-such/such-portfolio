@@ -6,13 +6,21 @@ interface Props {
   sub?: string;
   service?: boolean;
   white?: boolean;
+  others?: string;
 }
 
-const { title, sub, service = false, white = false } = Astro.props as Props;
+const {
+  title,
+  sub,
+  service = false,
+  white = false,
+  others,
+} = Astro.props as Props;
 
 const titleStyle = cn(
   "sec-tit pb-8 text-center lg:pb-14",
   white ? "text-white" : "text-main",
+  others,
 );
 ---
 

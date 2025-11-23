@@ -2,9 +2,12 @@
 import Rhoms from "@/components/Rhoms.astro";
 ---
 
-<section id="concept" class="bg-main relative h-screen w-screen">
+<section
+  id="concept"
+  class="bg-main relative h-screen w-screen overflow-y-visible"
+>
   <div
-    class="concept-container container-base h-full landscape:md:relative landscape:md:pt-[20vh]"
+    class="concept-container container-base fade h-full landscape:md:relative landscape:md:pt-[20vh]"
   >
     <div class="concept-content grid h-full grid-rows-3 landscape:md:block">
       <div id="concept-tit" class="concept-tit self-end">
@@ -50,7 +53,7 @@ import Rhoms from "@/components/Rhoms.astro";
       />
     </div>
   </div>
-  <Rhoms others="bottom-0 translate-y-11/12" />
+  <Rhoms id="concept" others="bottom-2 translate-y-11/12" />
 </section>
 
 <script>
