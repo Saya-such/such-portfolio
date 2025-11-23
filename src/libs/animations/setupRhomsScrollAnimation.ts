@@ -33,10 +33,12 @@ const setupRhomsScrollAnimation = ({
   // end: string;
   afterFns?: (() => void)[];
   reverse?: boolean;
-}): GSAPTimeline | null => {
+}): GSAPTimeline | null | void => {
   let tl = null;
 
   const rhomsImg = trigger.getElementsByClassName("rhoms-img");
+
+  if (!rhomsImg) return;
 
   const prevFade = prev.querySelector(".fade");
 
@@ -44,12 +46,16 @@ const setupRhomsScrollAnimation = ({
     const nextFadeTargets = next.querySelectorAll(".fadeIn");
     const nextBlurFadeTargets = next.querySelectorAll(".blurFadeIn");
 
-    nextFadeTargets.forEach((target) =>
-      fadeIn({ target: target as HTMLElement }),
-    );
-    nextBlurFadeTargets.forEach((target) =>
-      blurFadeIn({ target: target as HTMLElement }),
-    );
+    if (nextFadeTargets) {
+      nextFadeTargets.forEach((target) =>
+        fadeIn({ target: target as HTMLElement }),
+      );
+    }
+    if (nextBlurFadeTargets) {
+      nextBlurFadeTargets.forEach((target) =>
+        blurFadeIn({ target: target as HTMLElement }),
+      );
+    }
   };
 
   const runAfterFns = () => {
@@ -76,9 +82,11 @@ const setupRhomsScrollAnimation = ({
       filter: "blur(5px)",
       scale: 1.2,
     });
-    tl.to(prevFade, {
-      opacity: 0,
-    });
+    if (prevFade) {
+      tl.to(prevFade, {
+        opacity: 0,
+      });
+    }
     tl.to(prev, {
       opacity: 0,
     });

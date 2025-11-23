@@ -8,7 +8,7 @@ const manageHero = () => {
   if (!heroEl || !logoEl) return;
 
   //ロゴのフェードイン
-  blurFadeIn({ target: logoEl, options: { y: -5 } });
+  blurFadeIn({ target: logoEl, fromOptions: { y: -5 }, toOptions: { y: 0 } });
 
   //Heroの高さを初回読み込み時のビューポートに固定
   setupElementHeight(heroEl);

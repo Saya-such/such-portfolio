@@ -1,7 +1,8 @@
 type FadeInProps = {
   target: HTMLElement;
   duration?: number;
-  options?: GSAPTweenVars;
+  fromOptions?: GSAPTweenVars;
+  toOptions?: GSAPTweenVars;
 };
 
 export type { FadeInProps };
