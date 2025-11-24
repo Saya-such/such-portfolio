@@ -1,12 +1,20 @@
 import createButtonAnimationTimeline from "@/components/Button/createButtonAnimationTimeline";
 
 const initButtonAnimation = () => {
-  const targets = document.querySelectorAll(".btn-circle");
+  const buttons = document.querySelectorAll(".btn-link");
 
-  if (!targets) return;
+  if (!buttons.length) return;
 
-  return Array.from(targets).map((target) => {
-    createButtonAnimationTimeline(target as HTMLElement);
+  return Array.from(buttons).map((target) => {
+    let tl = createButtonAnimationTimeline(target as HTMLElement);
+    tl.play();
+
+    target.addEventListener("pointerenter", () => {
+      tl.seek(1.5).pause();
+    });
+    target.addEventListener("pointerleave", () => {
+      tl.restart();
+    });
   });
 };
 
