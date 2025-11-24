@@ -7,14 +7,14 @@ import Info from "@/components/Info.astro";
 import HeaderMenuButton from "./HeaderMenuButton.astro";
 
 const linkStyle = cn(
-  "font-en relative p-6 text-3xl text-white underline md:p-8 md:text-5xl",
+  "group/link font-en relative p-6 duration-300 text-3xl text-white underline md:p-8 md:text-5xl hover:opacity-70",
 );
 ---
 
 <div id="menu">
   <button
     id="menu-btn"
-    class="menu-btn mr-2.5 inline-grid cursor-pointer grid-cols-1 grid-rows-1 py-1 align-top lg:mr-4"
+    class="menu-btn mr-2.5 inline-grid cursor-pointer grid-cols-1 grid-rows-1 py-1 align-top duration-300 hover:opacity-80 lg:mr-4"
   >
     <HeaderMenuButton />
     <HeaderMenuButton text="CLOSE" other="invisible" />
@@ -36,7 +36,7 @@ const linkStyle = cn(
               <li class="menu-item">
                 <a href={item.link} class={linkStyle}>
                   {item.text}
-                  <DiamondShape other="absolute inset-y-0 left-0" />
+                  <DiamondShape other="absolute inset-y-0 left-0 duration-500 group-hover/link:scale-75" />
                 </a>
               </li>
             ))
