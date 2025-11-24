@@ -6,8 +6,9 @@ const blurFadeIn = ({
   duration = 0.8,
   fromOptions = {},
   toOptions = {},
-}: FadeInProps) => {
-  return gsap.fromTo(
+}: FadeInProps): GSAPTimeline => {
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(
     target,
     {
       ...fromOptions,
@@ -22,6 +23,8 @@ const blurFadeIn = ({
       ease: "power1.in",
     },
   );
+
+  return tl;
 };
 
 export default blurFadeIn;

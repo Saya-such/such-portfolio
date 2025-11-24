@@ -47,14 +47,16 @@ const setupRhomsScrollAnimation = ({
     const nextBlurFadeTargets = next.querySelectorAll(".blurFadeIn");
 
     if (nextFadeTargets) {
-      nextFadeTargets.forEach((target) =>
-        fadeIn({ target: target as HTMLElement }),
-      );
+      nextFadeTargets.forEach((target) => {
+        const fadeInTl = fadeIn({ target: target as HTMLElement });
+        fadeInTl.play();
+      });
     }
     if (nextBlurFadeTargets) {
-      nextBlurFadeTargets.forEach((target) =>
-        blurFadeIn({ target: target as HTMLElement }),
-      );
+      nextBlurFadeTargets.forEach((target) => {
+        const blurTl = blurFadeIn({ target: target as HTMLElement });
+        blurTl.play();
+      });
     }
   };
 

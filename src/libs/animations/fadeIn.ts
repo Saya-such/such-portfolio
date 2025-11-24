@@ -6,8 +6,9 @@ const fadeIn = ({
   duration = 0.8,
   fromOptions = {},
   toOptions = {},
-}: FadeInProps) => {
-  return gsap.fromTo(
+}: FadeInProps): GSAPTimeline => {
+  const tl = gsap.timeline({ pause: true });
+  tl.fromTo(
     target,
     {
       ...fromOptions,
@@ -20,6 +21,8 @@ const fadeIn = ({
       ease: "power1.in",
     },
   );
+
+  return tl;
 };
 
 export default fadeIn;
