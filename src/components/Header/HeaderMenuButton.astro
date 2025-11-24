@@ -25,7 +25,7 @@ const labelStyle = cn("menu-label font-en text-xs tracking-wide md:text-base");
 
 {
   text === "CLOSE" ? (
-    <div id="menu-open" class={wrapStyle}>
+    <div id="menu-close" class={wrapStyle}>
       <DiamondShape menu={true} color="transparent">
         <span class={closeLineStyle(false)} />
         <span class={closeLineStyle(true)} />
@@ -33,7 +33,7 @@ const labelStyle = cn("menu-label font-en text-xs tracking-wide md:text-base");
       <span class={labelStyle}>{text}</span>
     </div>
   ) : (
-    <div id="menu-close" class={wrapStyle}>
+    <div id="menu-open" class={wrapStyle}>
       <DiamondShape menu={true} />
       <span class={labelStyle}>{text}</span>
     </div>

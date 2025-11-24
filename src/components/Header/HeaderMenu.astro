@@ -16,11 +16,12 @@ const linkStyle = cn(
     id="menu-btn"
     class="menu-btn mr-2.5 inline-grid cursor-pointer grid-cols-1 grid-rows-1 py-1 align-top lg:mr-4"
   >
-    <HeaderMenuButton other="visible" />
+    <HeaderMenuButton />
     <HeaderMenuButton text="CLOSE" other="invisible" />
   </button>
   <div
-    class="bg-main invisible fixed top-0 left-0 -z-1 md:right-0 md:left-auto md:h-screen md:px-10"
+    id="menu-content"
+    class="bg-main invisible fixed top-0 left-0 -z-1 overscroll-contain opacity-0 duration-450 md:right-0 md:left-auto md:h-screen md:px-10"
   >
     <nav
       class="menu-nav z-100 grid h-screen w-screen max-w-xl grid-rows-9 md:w-[50vw] md:grid-rows-8"
@@ -67,7 +68,14 @@ const linkStyle = cn(
     <Info other="hidden absolute w-[calc(100%-80px)] bottom-7 md:block" />
   </div>
   <div
-    class="menu-overlay invisible fixed top-0 left-0 -z-100 h-screen w-screen bg-black opacity-50"
+    id="menu-overlay"
+    class="menu-overlay invisible fixed top-0 left-0 -z-100 h-screen w-screen overscroll-contain bg-black opacity-0 duration-300"
   >
   </div>
 </div>
+
+<script>
+  import manageHeaderMenuAnimations from "./manageHeaderMenuAnimations";
+
+  manageHeaderMenuAnimations();
+</script>
