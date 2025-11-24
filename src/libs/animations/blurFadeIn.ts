@@ -4,6 +4,7 @@ import type { FadeInProps } from "@/types/FadeInProps";
 const blurFadeIn = ({
   target,
   duration = 0.8,
+  opacity = 0.3,
   fromOptions = {},
   toOptions = {},
 }: FadeInProps): GSAPTimeline => {
@@ -12,7 +13,7 @@ const blurFadeIn = ({
     target,
     {
       ...fromOptions,
-      opacity: 0.3,
+      opacity,
       filter: "blur(8px)",
     },
     {

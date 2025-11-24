@@ -42,20 +42,27 @@ const setupRhomsScrollAnimation = ({
 
   const prevFade = prev.querySelector(".fade");
 
-  const nextFadeInAll = () => {
+  const runNextFadeAll = (play: boolean = true) => {
     const nextFadeTargets = next.querySelectorAll(".fadeIn");
     const nextBlurFadeTargets = next.querySelectorAll(".blurFadeIn");
 
     if (nextFadeTargets) {
       nextFadeTargets.forEach((target) => {
-        const fadeInTl = fadeIn({ target: target as HTMLElement });
-        fadeInTl.play();
+        const fadeInTl = fadeIn({
+          target: target as HTMLElement,
+          duration: 0.3,
+        });
+        play ? fadeInTl.reverse() : fadeInTl.play();
       });
     }
     if (nextBlurFadeTargets) {
       nextBlurFadeTargets.forEach((target) => {
-        const blurTl = blurFadeIn({ target: target as HTMLElement });
-        blurTl.play();
+        const blurTl = blurFadeIn({
+          target: target as HTMLElement,
+          duration: 0.5,
+          opacity: 0,
+        });
+        play ? blurTl.reverse() : blurTl.play();
       });
     }
   };
@@ -73,24 +80,36 @@ const setupRhomsScrollAnimation = ({
         trigger,
         start: "top 80%",
         end: "bottom 50%",
-        markers: true,
         scrub: 1,
+        onEnter: () => {
+          if (reverse) {
+            runNextFadeAll(false);
+          } else {
+            runNextFadeAll(true);
+          }
+        },
+        onEnterBack: () => {
+          if (reverse) {
+            runNextFadeAll(false);
+          } else {
+            runNextFadeAll(true);
+          }
+        },
         onLeave: () => {
-          nextFadeInAll();
+          if (reverse) {
+            runNextFadeAll(true);
+          } else {
+            runNextFadeAll(false);
+          }
+        },
+        onLeaveBack: () => {
+          if (reverse) {
+            runNextFadeAll(true);
+          } else {
+            runNextFadeAll(false);
+          }
         },
       },
-    });
-    tl.to(rhomsImg, {
-      filter: "blur(5px)",
-      scale: 1.2,
-    });
-    if (prevFade) {
-      tl.to(prevFade, {
-        opacity: 0,
-      });
-    }
-    tl.to(prev, {
-      opacity: 0,
     });
   } else {
     tl = gsap.timeline({
@@ -102,6 +121,23 @@ const setupRhomsScrollAnimation = ({
         markers: true,
         scrub: 1,
       },
+    });
+  }
+
+  if (tl !== null) {
+    tl.to(rhomsImg, {
+      filter: "blur(5px)",
+      scale: 1.1,
+    }).to(rhomsImg, {
+      scale: 1.3,
+    });
+    if (prevFade) {
+      tl.to(prevFade, {
+        opacity: 0,
+      });
+    }
+    tl.to(prev, {
+      opacity: 0,
     });
   }
 
