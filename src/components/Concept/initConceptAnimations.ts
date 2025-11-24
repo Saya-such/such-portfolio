@@ -1,7 +1,7 @@
 import startBlurFadeInOnScroll from "@/libs/animations/startBlurFadeInOnScroll";
 import createConceptImageLoopTimeline from "./createConceptImageLoopTimeline";
 
-const manageConcept = () => {
+const initConceptAnimations = () => {
   const tit = document.getElementById("concept-tit");
   const img = document.getElementById("concept-img");
 
@@ -11,4 +11,4 @@ const manageConcept = () => {
   createConceptImageLoopTimeline(img);
 };
 
-export default manageConcept;
+export default initConceptAnimations;

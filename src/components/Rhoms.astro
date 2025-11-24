@@ -2,14 +2,15 @@
 import cn from "@/libs/cn";
 
 interface Props {
+  id: string;
   down?: boolean;
   others?: string;
 }
 
-const { down = false, others } = Astro.props as Props;
+const { id, down = false, others } = Astro.props as Props;
 
 const rhomsStyle = cn(
-  "rhoms absolute w-screen left-0 -z-10 h-auto aspect-4/3 md:aspect-2/1",
+  "rhoms absolute w-screen left-0 -z-10  overflow-hidden h-auto aspect-4/3 md:aspect-2/1",
   {
     "-scale-y-100": down,
   },
@@ -17,15 +18,15 @@ const rhomsStyle = cn(
 );
 ---
 
-<div class={rhomsStyle}>
+<div id={`rhoms-${id}`} class={rhomsStyle}>
   <img
     src="./images/rhoms-sp.webp"
     alt=""
-    class="h-full w-full object-contain md:hidden"
+    class="rhoms-img h-full w-full origin-top object-contain md:hidden"
   />
   <img
     src="./images/rhoms.webp"
     alt=""
-    class="hidden h-full w-full object-contain md:block"
+    class="rhoms-img hidden h-full w-full origin-top object-contain md:block"
   />
 </div>

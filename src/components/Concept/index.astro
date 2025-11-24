@@ -2,8 +2,13 @@
 import Rhoms from "@/components/Rhoms.astro";
 ---
 
-<section id="concept" class="bg-main relative h-screen w-screen">
-  <div class="concept-container container-base h-full landscape:md:relative">
+<section
+  id="concept"
+  class="bg-main relative h-screen w-screen overflow-y-visible"
+>
+  <div
+    class="concept-container container-base fade h-full landscape:md:relative landscape:md:pt-[20vh]"
+  >
     <div class="concept-content grid h-full grid-rows-3 landscape:md:block">
       <div id="concept-tit" class="concept-tit self-end">
         <h1
@@ -39,7 +44,7 @@ import Rhoms from "@/components/Rhoms.astro";
     </div>
     <div
       id="concept-img"
-      class="concept-img absolute top-3/7 right-1.5 w-3/5 md:top-1/5 md:w-3/7 lg:top-1/6 lg:right-0 xl:w-4/9 2xl:top-1/12 2xl:w-1/2 portrait:md:top-4/9 portrait:md:right-5 portrait:md:w-5/9 portrait:lg:top-7/15"
+      class="concept-img absolute top-3/7 right-1.5 w-3/5 md:top-1/5 md:w-3/7 lg:top-1/6 lg:right-0 xl:w-4/9 2xl:top-1/12 2xl:w-1/2 portrait:md:top-4/9 portrait:md:right-5 portrait:md:w-5/9 portrait:lg:top-7/15 landscape:md:pt-[20vh]"
     >
       <img
         src="./images/hand.png"
@@ -48,11 +53,14 @@ import Rhoms from "@/components/Rhoms.astro";
       />
     </div>
   </div>
-  <Rhoms others="bottom-0 translate-y-11/12" />
+  <Rhoms
+    id="concept"
+    others="bottom-2 translate-y-10/11 md:translate-y-19/20"
+  />
 </section>
 
 <script>
-  import manageConcept from "./manageConcept";
+  import initConceptAnimations from "./initConceptAnimations";
 
-  manageConcept();
+  initConceptAnimations();
 </script>
