@@ -10,7 +10,7 @@ interface Props {
 const { menu = false, other, color } = Astro.props as Props;
 
 const style = cn(
-  "m-auto block rotate-45 bg-white",
+  "diamond m-auto block rotate-45 bg-white",
   menu ? "h-[5px] w-[5px]" : "h-1 w-1",
   color ? `bg-${color}` : "bg-white",
   other,
