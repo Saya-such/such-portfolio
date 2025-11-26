@@ -51,14 +51,19 @@ import Footer from "@/components/Footer/index.astro";
   <body
     class="font-primary h-screen w-screen overflow-x-hidden text-sm leading-loose tracking-widest lg:text-base 2xl:text-lg"
   >
-    <Header />
+    <div id="page-wrapper" class="duration-500">
+      <Header />
 
-    <Main>
-      <slot />
-    </Main>
+      <Main>
+        <slot />
+      </Main>
 
-    <Footer />
-    <div class="page-bg fixed top-0 left-0 -z-100 h-screen w-screen">
+      <Footer />
+    </div>
+    <div
+      id="page-bg"
+      class="page-bg fixed top-0 left-0 -z-100 h-screen w-screen"
+    >
       <img src="./images/bg.webp" alt="" class="h-full w-full object-cover" />
     </div>
 
