@@ -3,12 +3,17 @@ import Button from "@/components/Button/index.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 ---
 
-<section id="contact" class="bg-main">
+<section id="contact" class="bg-main min-h-screen">
   <div
     class="contact-container container-base py-10 md:pb-18 xl:py-20 2xl:py-24"
   >
-    <SectionTitle title="Contact" sub="お問い合わせ" white={true} />
-    <p class="text-center text-white lg:pb-16">
+    <SectionTitle
+      title="Contact"
+      sub="お問い合わせ"
+      white={true}
+      others="blurFadeIn opacity-0"
+    />
+    <p class="blurFadeIn text-center text-white opacity-0 lg:pb-16">
       Webサイト制作にお困りの際は<br
         class="lg:hidden"
       />まずはお気軽にご相談ください！<br />
@@ -17,6 +22,11 @@ import SectionTitle from "@/components/SectionTitle.astro";
       />外部パートナーとしてのお誘いなども含め<br />
       ぜひご連絡いただけると嬉しいです！
     </p>
-    <Button text="Get in Touch" link="#" other="py-5" subColor={true} />
+    <Button
+      text="Get in Touch"
+      link="#"
+      other="fadeIn  opacity-0 py-5"
+      subColor={true}
+    />
   </div>
 </section>

@@ -1,7 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import blurFadeIn from "./blurFadeIn";
-import fadeIn from "./fadeIn";
+import blurFadeIn from "@/libs/animations/blurFadeIn";
+import fadeIn from "@/libs/animations/fadeIn";
+import setBgColor from "@/libs/animations/setBgColor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,90 @@ gsap.registerPlugin(ScrollTrigger);
  * @param {string} params.end - ScrollTrigger の終了位置
  * @param {(() => void)[]} [params.after] - アニメーション完了後に実行する関数の配列
  */
+
+const createRhomsTimeline = ({
+  prev,
+  prevFade,
+  // start,
+  // end,
+  afterFns,
+  reverse,
+  rhomsInner,
+  rhomsImg,
+}: {
+  trigger: HTMLElement;
+  prev: HTMLElement;
+  prevFade: HTMLElement;
+  // start: string;
+  // end: string;
+  afterFns?: (() => void)[];
+  reverse: boolean;
+  rhomsInner: HTMLElement;
+  rhomsImg: NodeListOf<Element>;
+}): GSAPTimeline => {
+  const tl = gsap.timeline({
+    onComplete: () => {
+      if (afterFns) {
+        runAfterFns(afterFns);
+      }
+    },
+  });
+  tl.to(rhomsInner, {
+    filter: "blur(5px)",
+  });
+  tl.to(
+    rhomsImg,
+    {
+      scale: 1.1,
+    },
+    "<",
+  ).to(rhomsImg, {
+    scale: 1.3,
+  });
+  if (!reverse) {
+    tl.to(prevFade, {
+      opacity: 0,
+    });
+    tl.to(prev, {
+      opacity: 0,
+    });
+  }
+
+  return tl;
+};
+
+const runNextFadeInAll = (next: HTMLElement, play: boolean = true) => {
+  const nextFadeTargets = next.querySelectorAll(".fadeIn");
+  const nextBlurFadeTargets = next.querySelectorAll(".blurFadeIn");
+
+  if (nextFadeTargets) {
+    nextFadeTargets.forEach((target) => {
+      if (target instanceof HTMLElement) {
+        const fadeInTl = fadeIn({
+          target: target,
+          duration: 0.3,
+        });
+        play ? fadeInTl.play() : fadeInTl.reverse();
+      }
+    });
+  }
+  if (nextBlurFadeTargets) {
+    nextBlurFadeTargets.forEach((target) => {
+      if (target instanceof HTMLElement) {
+        const blurTl = blurFadeIn({
+          target: target,
+          duration: 0.5,
+          opacity: 0,
+        });
+        play ? blurTl.play() : blurTl.reverse();
+      }
+    });
+  }
+};
+
+const runAfterFns = (afterFns: (() => void)[]) => {
+  afterFns.forEach((fn) => fn());
+};
 
 const setupRhomsScrollAnimation = ({
   trigger,
@@ -33,115 +118,118 @@ const setupRhomsScrollAnimation = ({
   // end: string;
   afterFns?: (() => void)[];
   reverse?: boolean;
-}): GSAPTimeline | null | void => {
-  let tl = null;
+}) => {
+  const rhomsInner = trigger.querySelector<HTMLElement>(".rhoms-inner");
+  const rhomsImg = trigger.querySelectorAll(".rhoms-img");
+  const prevFade = prev.querySelector<HTMLElement>(".fade");
 
-  const rhomsImg = trigger.getElementsByClassName("rhoms-img");
+  if (!rhomsInner || !rhomsImg || !prevFade) return;
 
-  if (!rhomsImg) return;
+  const tl = createRhomsTimeline({
+    trigger,
+    prev,
+    prevFade,
+    // start,
+    // end,
+    afterFns,
+    rhomsInner,
+    rhomsImg,
+    reverse,
+  });
 
-  const prevFade = prev.querySelector(".fade");
-
-  const runNextFadeAll = (play: boolean = true) => {
-    const nextFadeTargets = next.querySelectorAll(".fadeIn");
-    const nextBlurFadeTargets = next.querySelectorAll(".blurFadeIn");
-
-    if (nextFadeTargets) {
-      nextFadeTargets.forEach((target) => {
-        const fadeInTl = fadeIn({
-          target: target as HTMLElement,
-          duration: 0.3,
-        });
-        play ? fadeInTl.reverse() : fadeInTl.play();
-      });
-    }
-    if (nextBlurFadeTargets) {
-      nextBlurFadeTargets.forEach((target) => {
-        const blurTl = blurFadeIn({
-          target: target as HTMLElement,
-          duration: 0.5,
-          opacity: 0,
-        });
-        play ? blurTl.reverse() : blurTl.play();
-      });
-    }
-  };
-
-  const runAfterFns = () => {
-    if (afterFns) {
-      afterFns.forEach((fn) => fn());
-    }
-  };
-
-  if (window.matchMedia("(orientation: portrait) and (max-width: 1024px)")) {
-    tl = gsap.timeline({
-      onComplete: runAfterFns,
-      scrollTrigger: {
+  if (
+    window.matchMedia("(orientation: portrait) and (max-width: 1024px)").matches
+  ) {
+    if (!reverse) {
+      ScrollTrigger.create({
         trigger,
+        id: "conceptRSP",
         start: "top 80%",
         end: "bottom 50%",
         scrub: 1,
+        animation: tl,
         onEnter: () => {
-          if (reverse) {
-            runNextFadeAll(false);
-          } else {
-            runNextFadeAll(true);
-          }
+          runNextFadeInAll(next, false);
         },
         onEnterBack: () => {
-          if (reverse) {
-            runNextFadeAll(false);
-          } else {
-            runNextFadeAll(true);
-          }
+          runNextFadeInAll(next, false);
         },
         onLeave: () => {
-          if (reverse) {
-            runNextFadeAll(true);
-          } else {
-            runNextFadeAll(false);
-          }
+          runNextFadeInAll(next, true);
         },
-        onLeaveBack: () => {
-          if (reverse) {
-            runNextFadeAll(true);
-          } else {
-            runNextFadeAll(false);
-          }
-        },
-      },
-    });
-  } else {
-    tl = gsap.timeline({
-      onComplete: runAfterFns,
-      scrollTrigger: {
+      });
+    } else {
+      ScrollTrigger.create({
         trigger,
-        start: "top 80%",
+        id: "worksRSP",
+        start: "top 50%",
         end: "top top",
-        markers: true,
-        scrub: 1,
-      },
-    });
-  }
-
-  if (tl !== null) {
-    tl.to(rhomsImg, {
-      filter: "blur(5px)",
-      scale: 1.1,
-    }).to(rhomsImg, {
-      scale: 1.3,
-    });
-    if (prevFade) {
-      tl.to(prevFade, {
-        opacity: 0,
+        scrub: true,
+        animation: tl,
+        onUpdate: (self) => {
+          tl.progress(1 - self.progress);
+        },
+        onEnter: () => {
+          runNextFadeInAll(next, false);
+        },
+        onEnterBack: () => {
+          setBgColor("transparent");
+          runNextFadeInAll(next, false);
+          prevFade.classList.replace("opacity-0", "opacity-100");
+        },
+        onLeave: () => {
+          prevFade.classList.replace("opacity-100", "opacity-0");
+          runNextFadeInAll(next, true);
+          setBgColor("main");
+        },
       });
     }
-    tl.to(prev, {
-      opacity: 0,
-    });
+  } else {
+    if (!reverse) {
+      ScrollTrigger.create({
+        trigger,
+        id: "conceptRPC",
+        start: "top 80%",
+        end: "top top",
+        scrub: 1,
+        animation: tl,
+        onEnter: () => {
+          runNextFadeInAll(next, false);
+        },
+        onEnterBack: () => {
+          runNextFadeInAll(next, false);
+        },
+        onLeave: () => {
+          runNextFadeInAll(next, true);
+        },
+      });
+    } else {
+      ScrollTrigger.create({
+        trigger,
+        id: "worksRPC",
+        start: "top bottom",
+        end: "top top",
+        scrub: 1,
+        animation: tl,
+        onUpdate: (self) => {
+          tl.progress(1 - self.progress);
+        },
+        onEnter: () => {
+          runNextFadeInAll(next, false);
+        },
+        onEnterBack: () => {
+          setBgColor("transparent");
+          runNextFadeInAll(next, false);
+          prevFade.classList.replace("opacity-0", "opacity-100");
+        },
+        onLeave: () => {
+          prevFade.classList.replace("opacity-100", "opacity-0");
+          runNextFadeInAll(next, true);
+          setBgColor("main");
+        },
+      });
+    }
   }
-
-  return tl;
 };
 
 export default setupRhomsScrollAnimation;
