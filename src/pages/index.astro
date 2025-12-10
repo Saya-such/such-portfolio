@@ -1,24 +1,18 @@
 ---
 import Layout from "@/layout/Layout.astro";
 import Hero from "@/components/Hero/index.astro";
-import Concept from "@/components/Concept/index.astro";
-import Service from "@/components/Service/index.astro";
-import Works from "@/components/Works/index.astro";
-import Contact from "@/components/Contact.astro";
+import ConceptService from "@/components/ConceptService/index.astro";
+import WorksToFooter from "@/components/WorksToFooter/index.astro";
 ---
 
 <Layout>
   <Hero />
-  <Concept />
-  <Service />
-  <Works />
-  <Contact />
+  <ConceptService />
+  <WorksToFooter />
 </Layout>
 
 <script>
   import initButtonAnimation from "@/libs/animations/initButtonAnimation";
-  import initRhomsAnimations from "@/libs/animations/initRhomsAnimations";
 
   initButtonAnimation();
-  initRhomsAnimations();
 </script>
