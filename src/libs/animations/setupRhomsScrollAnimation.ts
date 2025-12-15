@@ -101,20 +101,13 @@ const setupRhomsScrollAnimation = ({
 
   const nextFadeInTls = setupNextFadeInAllAnimations(next);
 
-  const handleUpdate = isConcept
-    ? undefined
-    : (self: ScrollTrigger) => {
-        tl.progress(1 - self.progress);
-      };
-
   ScrollTrigger.create({
     trigger,
     id: kind,
     start: isSP ? start : startPC,
     end: isSP ? end : endPC,
     scrub: 1,
-    animation: isConcept ? tl : undefined,
-    onUpdate: handleUpdate,
+    animation: tl,
     onEnter: () => {
       runNextFadeInAllAnimations(nextFadeInTls, "out");
       if (isConcept) {
