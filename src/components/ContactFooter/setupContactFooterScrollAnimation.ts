@@ -12,7 +12,6 @@ const setupContactFooterScrollAnimation = (
     scrollTrigger: {
       trigger,
       scrub: true,
-      markers: true,
       start: "top bottom",
       end: "bottom bottom",
       onEnter: () => {

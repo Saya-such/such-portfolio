@@ -15,9 +15,9 @@ const createHeaderMenuTimeline = ({
   menuEl: HTMLElement;
   overlay: HTMLElement;
 }): GSAPTimeline => {
-  const openDeco = openBtn.querySelector(".diamond");
+  const openDeco = openBtn.querySelector(".diamond.animate");
   const openLabel = openBtn.querySelector(".menu-label");
-  const closeDeco = closeBtn.querySelector(".diamond");
+  const closeDeco = closeBtn.querySelector(".diamond.animate");
   const closeLabel = closeBtn.querySelector(".menu-label");
   const menuNav = menuEl.querySelector(".menu-nav");
 
@@ -33,7 +33,6 @@ const createHeaderMenuTimeline = ({
     return tl;
 
   tl.fromTo(openLabel, { opacity: 1.0 }, { opacity: 0 });
-  tl.fromTo(openDeco, { scale: 1.0 }, { scale: 0 });
   tl.add(() => {
     toggleClassName(openBtn);
     toggleClassName(menuEl, "opacity-0");

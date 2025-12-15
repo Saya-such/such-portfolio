@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import runNextFadeInAllAnimations from "@/libs/animations/runNextFadeInAllAnimations";
 import { setupNextFadeInAllAnimations } from "@/libs/animations/runNextFadeInAllAnimations";
 import setBgColor from "@/libs/animations/setBgColor";
+import setHeaderColor from "@/libs/animations/setHeaderColor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,6 +117,9 @@ const setupRhomsScrollAnimation = ({
     onUpdate: handleUpdate,
     onEnter: () => {
       runNextFadeInAllAnimations(nextFadeInTls, "out");
+      if (isConcept) {
+        setHeaderColor("main");
+      }
     },
     onEnterBack: () => {
       if (isConcept) {
@@ -126,6 +130,7 @@ const setupRhomsScrollAnimation = ({
           runNextFadeInAllAnimations(nextFadeInTls, "out");
           prevFade.classList.replace("opacity-0", "opacity-100");
         }
+        setHeaderColor("main");
       }
     },
     onLeave: () => {
@@ -137,6 +142,12 @@ const setupRhomsScrollAnimation = ({
           runNextFadeInAllAnimations(nextFadeInTls, "in");
           setBgColor("main");
         }
+        setHeaderColor("white");
+      }
+    },
+    onLeaveBack: () => {
+      if (isConcept) {
+        setHeaderColor("white");
       }
     },
   });
