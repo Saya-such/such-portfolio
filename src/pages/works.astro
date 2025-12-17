@@ -1,0 +1,35 @@
+---
+import WorksLayout from "@/layout/WorksLayout.astro";
+import ContactFooter from "@/components/ContactFooter/index.astro";
+import PageHeader from "@/components/PageHeader/index.astro";
+import Rhoms from "@/components/Rhoms.astro";
+import WorksItem from "@/components/WorksItem/index.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("works")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<WorksLayout>
+  <section id="works" class="relative">
+    <div class="works-container container-base opacity-100 lg:w-4/5 2xl:w-full">
+      <PageHeader title="制作実績" sub="Works" />
+      <ul
+        class="prev-fade works-list w-full pt-14 pb-50 md:pt-24 lg:pb-100 xl:pt-40"
+      >
+        <WorksItem />
+      </ul>
+    </div>
+    <Rhoms id="lower" down={true} offset="translate-y-1/12" />
+  </section>
+  <ContactFooter />
+</WorksLayout>
+
+<script>
+  import initPageToFooterAnimations from "@/libs/animations/initPageToFooterAnimations";
+
+  const works = document.getElementById("works");
+  if (works) {
+    initPageToFooterAnimations(works);
+  }
+</script>

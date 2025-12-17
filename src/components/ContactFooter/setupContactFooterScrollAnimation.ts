@@ -25,11 +25,13 @@ const setupContactFooterScrollAnimation = (
     },
   });
 
-  tl.add(() => {
-    setBgColor("main");
-  }, 0.3).add(() => {
-    setBgColor("dark");
-  }, 0.5);
+  tl.to({}, { duration: 1 })
+    .add(() => {
+      setBgColor("main");
+    }, 0.3)
+    .add(() => {
+      setBgColor("dark");
+    }, 0.5);
 };
 
 export default setupContactFooterScrollAnimation;

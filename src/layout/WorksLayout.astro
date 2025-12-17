@@ -2,6 +2,12 @@
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Main from "@/components/Main.astro";
+
+interface Props {
+  article?: boolean;
+}
+
+const { article = false } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -61,7 +67,11 @@ import Main from "@/components/Main.astro";
       id="page-bg"
       class="page-bg fixed top-0 left-0 -z-100 h-screen w-screen"
     >
-      <img src="./images/bg.webp" alt="" class="h-full w-full object-cover" />
+      <img
+        src={article ? "../images/bg.webp" : "./images/bg.webp"}
+        alt=""
+        class="h-full w-full object-cover"
+      />
     </div>
 
     <script>
