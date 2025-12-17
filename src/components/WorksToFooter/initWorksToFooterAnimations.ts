@@ -14,7 +14,7 @@ const initWorksToFooterAnimations = () => {
     start: "top 50%",
     end: "top top",
     startPC: "top bottom",
-    endPC: "bottom 60%",
+    endPC: "bottom 50%",
     kind: "WorksToFooter",
   });
 };
