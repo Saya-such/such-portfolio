@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+const posts = (await getCollection("works")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+{
+  posts.map((post) => (
+    <li class="works-item pb-7 md:pb-12 xl:pb-16 2xl:pb-20">
+      <a href={`/works/${post.id}`} class="text-main block">
+        <img
+          src={post.data.thumbnail}
+          alt={post.data.title + " | suchの実績"}
+          class="aspect-video h-full w-full object-cover drop-shadow-md"
+        />
+        <p class="font-en px-2 pt-3 text-lg md:py-6 md:text-3xl md:tracking-widest 2xl:py-10">
+          {post.data.title}
+        </p>
+      </a>
+    </li>
+  ))
+}

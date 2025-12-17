@@ -3,6 +3,7 @@ import WorksLayout from "@/layout/WorksLayout.astro";
 import ContactFooter from "@/components/ContactFooter/index.astro";
 import PageHeader from "@/components/PageHeader/index.astro";
 import Rhoms from "@/components/Rhoms.astro";
+import WorksItem from "@/components/WorksItem/index.astro";
 import { getCollection } from "astro:content";
 const posts = (await getCollection("works")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -16,22 +17,7 @@ const posts = (await getCollection("works")).sort(
       <ul
         class="prev-fade works-list w-full pt-14 pb-50 md:pt-24 lg:pb-100 xl:pt-40"
       >
-        {
-          posts.map((post) => (
-            <li class="works-item pb-7 md:pb-12 xl:pb-16 2xl:pb-20">
-              <a href={`/works/${post.id}`} class="text-main block">
-                <img
-                  src={post.data.thumbnail}
-                  alt={post.data.title + " | suchの実績"}
-                  class="aspect-video h-full w-full object-cover drop-shadow-md"
-                />
-                <p class="font-en px-2 pt-3 text-lg md:py-6 md:text-3xl md:tracking-widest 2xl:py-10">
-                  {post.data.title}
-                </p>
-              </a>
-            </li>
-          ))
-        }
+        <WorksItem />
       </ul>
     </div>
     <Rhoms id="lower" down={true} offset="translate-y-1/12" />
