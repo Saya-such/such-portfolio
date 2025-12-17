@@ -78,9 +78,11 @@ const { article = false } = Astro.props as Props;
       import enableSmoothScroll from "@/libs/enableSmoothScroll";
       import initButtonAnimation from "@/libs/animations/initButtonAnimation";
       import setHeaderColor from "@/libs/animations/setHeaderColor";
+      import reload from "@/libs/reload";
 
       enableSmoothScroll();
       initButtonAnimation();
+      reload();
       setHeaderColor("main");
     </script>
   </body>
