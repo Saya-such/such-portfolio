@@ -1,0 +1,122 @@
+---
+import cn from "@/libs/cn";
+import WorksLayout from "@/layout/WorksLayout.astro";
+import Button from "@/components/Button/index.astro";
+import DiamondShape from "@/components/DiamondShape.astro";
+import ContactFooter from "@/components/ContactFooter/index.astro";
+import PageHeader from "@/components/PageHeader/index.astro";
+import Rhoms from "@/components/Rhoms.astro";
+import { getCollection, render } from "astro:content";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const posts = await getCollection("works");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const optionStyle = cn("works-option");
+const optionTitle = cn(
+  "option-title relative text-lg py-3 pl-5 pb-3 md:text-2xl md:pl-7 lg:pb-4",
+);
+const optionTxt = cn(
+  "option-txt pl-5 pb-3.5 tracking-wider md:pl-7 md:pb-8 md:text-lg",
+);
+---
+
+<WorksLayout article={true}>
+  <section id="works" class="relative">
+    <div
+      class="works-container prev-fade container-base text-main pb-60 opacity-100 md:pb-80 lg:w-4/5 lg:pb-100 xl:pb-140 2xl:w-full 2xl:pb-160"
+    >
+      <PageHeader title={post.data.title} sub="Works/" en={true} />
+      <ul
+        class="tags-list flex flex-wrap gap-2 pt-4 pb-12 md:pt-5 md:pb-20 md:pl-0.5 lg:pt-7 lg:pb-30"
+      >
+        {
+          post.data.tags.map((tag) => (
+            <li class="font-en bg-main p-1 text-xs leading-none text-white md:px-2 md:py-1.5 md:text-base">
+              {tag}
+            </li>
+          ))
+        }
+      </ul>
+      <div class="thumbnail pb-6 md:pb-10">
+        <img
+          src={"../" + post.data.thumbnail}
+          alt={post.data.title + " | suchの実績"}
+          class="aspect-video h-full w-full object-cover drop-shadow-md"
+        />
+      </div>
+      <div
+        class="works-details font-en mb-8 border-b border-zinc-300 md:mb-10 lg:mb-15"
+      >
+        {
+          post.data.releaseYM && (
+            <p class="releaseDate pb-0 text-right text-xs tracking-wider md:pr-0.5 md:text-lg">
+              Released: {post.data.releaseYM.year}/{post.data.releaseYM.month}
+            </p>
+          )
+        }
+        <div class="works-options pt-2 pb-5 leading-none lg:pb-4">
+          {
+            post.data.role && (
+              <div class={optionStyle}>
+                <h2 class={optionTitle}>
+                  <DiamondShape
+                    other="absolute inset-y-0 left-1 lg:bottom-1"
+                    color="main"
+                  />
+                  Role
+                </h2>
+                <p class={optionTxt}>{post.data.role}</p>
+              </div>
+            )
+          }
+          {
+            post.data.credit && (
+              <div class={optionStyle}>
+                <h2 class={optionTitle}>
+                  <DiamondShape
+                    other="absolute inset-y-0 left-1 lg:bottom-1"
+                    color="main"
+                  />
+                  Credit
+                </h2>
+                <p class={optionTxt}>{post.data.credit}</p>
+              </div>
+            )
+          }
+        </div>
+      </div>
+      <div class="works-content px-0.5">
+        <Content />
+      </div>
+      {
+        post.data.viewBtn && post.data.url && (
+          <Button
+            text="Visit site"
+            link={post.data.url}
+            other="py-3 md:py-10 lg:py-15 2xl:py-20"
+            newTab={true}
+          />
+        )
+      }
+    </div>
+    <Rhoms id="lower" down={true} offset="translate-y-1/12" article={true} />
+  </section>
+  <ContactFooter />
+</WorksLayout>
+
+<script>
+  import initPageToFooterAnimations from "@/libs/animations/initPageToFooterAnimations";
+
+  const works = document.getElementById("works");
+  if (works) {
+    initPageToFooterAnimations(works);
+  }
+</script>
