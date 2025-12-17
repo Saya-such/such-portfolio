@@ -36,9 +36,14 @@ const createRhomsTimeline = ({
 
   const tl = gsap.timeline();
 
-  tl.to(rhomsInner, {
-    filter: "blur(5px)",
-  })
+  tl.to({}, { duration: 1 })
+    .to(
+      rhomsInner,
+      {
+        filter: "blur(5px)",
+      },
+      0.3,
+    )
     .to(
       rhomsImg,
       {
@@ -46,9 +51,13 @@ const createRhomsTimeline = ({
       },
       "<",
     )
-    .to(rhomsImg, {
-      scale: 1.3,
-    });
+    .to(
+      rhomsImg,
+      {
+        scale: 1.3,
+      },
+      0.5,
+    );
   if (isConcept) {
     tl.to(prev, {
       opacity: 0,
@@ -96,14 +105,14 @@ const setupRhomsScrollAnimation = ({
   const prevFade = prev.querySelector(".prev-fade");
 
   const isSP = window.matchMedia(
-    "(orientation: portrait) and (max-width: 1024px)",
-  );
+    "(orientation: portrait) and (max-width: 1023px)",
+  ).matches;
 
   const nextFadeInTls = setupNextFadeInAllAnimations(next);
 
   ScrollTrigger.create({
     trigger,
-    id: kind,
+    id: isSP ? "SP" + kind : kind,
     start: isSP ? start : startPC,
     end: isSP ? end : endPC,
     scrub: 1,
