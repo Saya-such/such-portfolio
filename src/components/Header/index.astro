@@ -1,6 +1,15 @@
 ---
+import cn from "@/libs/cn";
 import HeaderLogo from "./HeaderLogo.astro";
 import HeaderMenu from "./HeaderMenu.astro";
+
+interface Props {
+  color?: "white" | "main";
+}
+
+const { color = "white" } = Astro.props as Props;
+
+const headerStyle = cn("");
 ---
 
 <header
