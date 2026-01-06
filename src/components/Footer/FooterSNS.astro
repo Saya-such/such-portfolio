@@ -1,0 +1,23 @@
+---
+import footerSNSData from "@/data/footerSNSData";
+---
+
+<ul class="sns-link flex leading-none">
+  {
+    footerSNSData.map((item, i) => (
+      <li class="mr-2">
+        <a
+          href={item.link}
+          target={item.blank ? "_blank" : undefined}
+          class="inline-block px-0.5 py-2 opacity-80"
+        >
+          <img
+            src={item.icon}
+            alt={item.alt}
+            class="w-4 object-contain align-bottom"
+          />
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -2,6 +2,7 @@
 import cn from "@/libs/cn";
 import Info from "@/components/Info.astro";
 import FooterMenu from "./FooterMenu.astro";
+import FooterSNS from "./FooterSNS.astro";
 
 const thStyle = cn("font-en block text-left pb-1");
 const tdStyle = cn("block pb-2");
@@ -24,8 +25,9 @@ const titStyle = cn("font-en pb-7 text-3xl md:text-4xl md:pb-8");
             class="w-1/2 max-w-[240px] object-contain opacity-50 shadow-md"
           />
           <div class="prof-name w-[45%] lg:pl-8">
-            <p class="font-en pb-2 text-2xl">Saya Saito</p>
-            <p class="pb-2">齊藤 沙耶</p>
+            <p class="font-en pb-1.5 text-2xl">Saya Saito</p>
+            <p class="pb-3.5">齊藤 沙耶</p>
+            <FooterSNS />
           </div>
         </div>
         <table class="prof-table">
