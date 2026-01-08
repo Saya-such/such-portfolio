@@ -5,10 +5,9 @@ interface Props {
   id: string;
   down?: boolean;
   offset: string;
-  article?: boolean;
 }
 
-const { id, down = false, offset, article = false } = Astro.props as Props;
+const { id, down = false, offset } = Astro.props as Props;
 
 const rhomsStyle = cn(
   "rhoms absolute w-screen left-0 bottom-0 -z-10 overflow-hidden h-auto aspect-4/3 md:aspect-2/1",
@@ -31,15 +30,7 @@ const imgStyle = (sp: boolean = true) =>
 
 <div id={`rhoms-${id}`} class={rhomsStyle}>
   <div class={innerStyle}>
-    <img
-      src={article ? "../images/rhoms-sp.webp" : "./images/rhoms-sp.webp"}
-      alt=""
-      class={imgStyle(true)}
-    />
-    <img
-      src={article ? "../images/rhoms.webp" : "./images/rhoms.webp"}
-      alt=""
-      class={imgStyle(false)}
-    />
+    <img src="/images/rhoms-sp.webp" alt="" class={imgStyle(true)} />
+    <img src="/images/rhoms.webp" alt="" class={imgStyle(false)} />
   </div>
 </div>

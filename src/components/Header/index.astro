@@ -1,15 +1,10 @@
 ---
-import cn from "@/libs/cn";
 import HeaderLogo from "./HeaderLogo.astro";
 import HeaderMenu from "./HeaderMenu.astro";
 
 interface Props {
   color?: "white" | "main";
 }
-
-const { color = "white" } = Astro.props as Props;
-
-const headerStyle = cn("");
 ---
 
 <header
@@ -23,7 +18,7 @@ const headerStyle = cn("");
       id="header-logo"
       class="header-logo pointer-events-auto h-12 w-12 lg:h-16 lg:w-16"
     >
-      <a href="#">
+      <a href="/">
         <HeaderLogo />
       </a>
     </div>

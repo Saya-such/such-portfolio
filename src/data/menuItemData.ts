@@ -3,22 +3,22 @@ import type { MenuItemData } from "@/types/MenuItemData";
 const menuItemData: MenuItemData[] = [
   {
     text: "Top",
-    link: "#hero",
+    link: "/",
     blank: false,
   },
   {
     text: "Concept",
-    link: "#concept",
+    link: "/#concept",
     blank: false,
   },
   {
     text: "Service",
-    link: "#service",
+    link: "/#service",
     blank: false,
   },
   {
     text: "Works",
-    link: "#works",
+    link: "/works/",
     blank: false,
   },
   {
