@@ -5,11 +5,11 @@ import menuItemData from "@/data/menuItemData";
 <ul class="menu grid grid-cols-2 px-1 pb-10 md:grid-cols-3 md:px-2 md:pb-0">
   {
     menuItemData.map((item, i) => (
-      <li class={`menu-item pb-5 ${i === 2 ? "md:col-start-1" : ""}`}>
+      <li class={`menu-item pb-3 ${i === 2 ? "md:col-start-1" : ""}`}>
         <a
           href={item.link}
           target={item.blank ? "_blank" : undefined}
-          class="font-en relative text-lg underline transition duration-300 hover:opacity-70 lg:text-2xl"
+          class="font-en relative inline-block py-2 pr-2 text-lg underline transition duration-300 hover:opacity-70 lg:text-2xl"
         >
           {item.text}
           {item.blank && (
@@ -17,7 +17,7 @@ import menuItemData from "@/data/menuItemData";
               src="./images/footer-link.png"
               alt=""
               aria-hidden="true"
-              class="absolute -top-1 -right-3 h-2 w-2 object-contain"
+              class="absolute top-1 -right-1 h-2 w-2 object-contain"
             />
           )}
         </a>
