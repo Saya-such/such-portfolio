@@ -4,11 +4,7 @@ import type { FadeInProps } from "@/types/FadeInProps";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const startFadeInOnScroll = ({
-  target,
-  duration = 0.5,
-  options = {},
-}: FadeInProps) => {
+const startFadeInOnScroll = ({ target, duration = 0.5 }: FadeInProps) => {
   return gsap.from(target, {
     y: 3,
     opacity: 0,
@@ -18,7 +14,6 @@ const startFadeInOnScroll = ({
       trigger: target,
       start: "top 80%",
     },
-    ...options,
   });
 };
 
