@@ -4,10 +4,6 @@ import ContactFooter from "@/components/ContactFooter/index.astro";
 import PageHeader from "@/components/PageHeader/index.astro";
 import Rhoms from "@/components/Rhoms.astro";
 import WorksItem from "@/components/WorksItem/index.astro";
-import { getCollection } from "astro:content";
-const posts = (await getCollection("works")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 ---
 
 <WorksLayout>
