@@ -1,43 +1,92 @@
-# Astro Starter Kit: Minimal
+# such portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+This is my personal portfolio website.
+
+## 🌐 URL
+
+- GitHub Pages (for testing):  
+  [テストサイト](https://saya-such.github.io/such-portfolio/)
+- Production:  
+  [such](https://such-web.com)
+
+## 📌 Overview
+
+This portfolio showcases my work as a frontend developer, focusing on:
+
+- Clean and maintainable UI implementation
+- Scroll-based animations and interactions
+- Accessibility-conscious markup and behavior
+- Component-based structure with reusability in mind
+
+## 🛠 Tech Stack
+
+- Framework: [Astro](https://astro.build/) v5.14.6
+- Language: TypeScript
+- Styling: Tailwind CSS v4.1.14 + [@tailwindcss/vite](https://tailwindcss.com/docs/installation/using-vite)
+- Animation: GSAP / Lenis
+
+## ✨ Features
+
+- Scroll-triggered animations
+- Accessible navigation with proper ARIA attributes
+- Responsive layout for desktop and mobile
+- Component-based design for scalability
+
+## 🚀 Development Flow
+
+```bash
+# リポジトリをクローン
+git clone https://github.com/Saya-such/such-portfolio.git
+
+# ディレクトリへ移動
+cd such-portfolio
+
+# パッケージをインストール
+npm install
+
+# 開発サーバーを起動
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📦 ビルド / デプロイ
 
-## 🚀 Project Structure
+```bash
+# ビルド
+npm run build
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# プレビュー
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- GitHub Pages is used for device testing and previews
+- After validation, the built files are deployed manually to the production domain
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 📂 Project Structure (Overview)
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+public/
+└── images/ # 画像データ
+src/
+├── components/ # UIコンポーネント
+├── data/ # 記事やメニュー項目などのデータ管理
+├── layout/ # レイアウト管理
+├── libs/ # 共通の関数
+├── pages/ # 各ページ
+├── styles/ # グローバルスタイル
+└── types/ # 型定義
+```
 
-## 🧞 Commands
+## 🧪 Testing
 
-All commands are run from the root of the project, from a terminal:
+- Desktop browsers (Chrome / Safari / Edge / Firefox)
+- Mobile devices (iOS / Android)
+- Keyboard navigation and basic accessibility checks
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📝 Notes
 
-## 👀 Want to learn more?
+- Refactoring and optimizations are intentionally planned after release
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📬 Contact
+
+- Website: https://such-web.com
+- GitHub: https://github.com/Saya-such
