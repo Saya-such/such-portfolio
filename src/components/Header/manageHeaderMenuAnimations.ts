@@ -19,10 +19,18 @@ const manageHeaderMenuAnimations = () => {
 
   buttonEl.addEventListener("click", () => {
     if (!isOpen) {
-      menuTl.play();
+      menuTl.timeScale(1).play();
       isOpen = true;
     } else {
-      menuTl.reverse();
+      menuTl.timeScale(1).reverse();
+      isOpen = false;
+    }
+  });
+
+  //メニューリンククリック時にメニューを閉じる
+  menuEl.addEventListener("click", () => {
+    if (isOpen) {
+      menuTl.timeScale(3).reverse();
       isOpen = false;
     }
   });

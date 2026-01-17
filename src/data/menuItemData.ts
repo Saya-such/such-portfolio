@@ -13,7 +13,7 @@ const menuItemData: MenuItemData[] = [
   },
   {
     text: "Service",
-    link: "/#service",
+    link: "/#service-content",
     blank: false,
   },
   {
