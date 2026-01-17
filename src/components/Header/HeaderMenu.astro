@@ -11,7 +11,7 @@ const linkStyle = cn(
 );
 ---
 
-<div id="menu" class="pointer-events-auto">
+<div id="menu" class="pointer-events-auto z-10">
   <button
     type="button"
     id="menu-btn"
@@ -79,7 +79,7 @@ const linkStyle = cn(
   </div>
   <div
     id="menu-overlay"
-    class="menu-overlay invisible fixed top-0 left-0 -z-100 h-screen w-screen overscroll-contain bg-black opacity-0 duration-300"
+    class="menu-overlay invisible fixed top-0 left-0 -z-100 hidden h-screen w-screen bg-black opacity-0 duration-300 md:block"
   >
   </div>
 </div>
