@@ -20,9 +20,11 @@ const manageHeaderMenuAnimations = () => {
   buttonEl.addEventListener("click", () => {
     if (!isOpen) {
       menuTl.timeScale(1).play();
+      buttonEl.setAttribute("aria-expanded", "true");
       isOpen = true;
     } else {
       menuTl.timeScale(1).reverse();
+      buttonEl.setAttribute("aria-expanded", "false");
       isOpen = false;
     }
   });
@@ -31,6 +33,7 @@ const manageHeaderMenuAnimations = () => {
   menuEl.addEventListener("click", () => {
     if (isOpen) {
       menuTl.timeScale(3).reverse();
+      buttonEl.setAttribute("aria-expanded", "false");
       isOpen = false;
     }
   });
