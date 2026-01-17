@@ -8,7 +8,7 @@ import WorksItem from "@/components/WorksItem/index.astro";
 
 <WorksLayout>
   <section id="works" class="relative">
-    <div class="works-container container-base opacity-100 lg:w-4/5 2xl:w-full">
+    <div class="works-container container-base opacity-0 lg:w-4/5 2xl:w-full">
       <PageHeader title="制作実績" sub="Works" />
       <ul
         class="prev-fade works-list w-full pt-14 pb-50 md:pt-24 lg:pb-100 xl:pt-40"
@@ -22,10 +22,19 @@ import WorksItem from "@/components/WorksItem/index.astro";
 </WorksLayout>
 
 <script>
+  import blurFadeIn from "@/libs/animations/blurFadeIn";
   import initPageToFooterAnimations from "@/libs/animations/initPageToFooterAnimations";
 
   const works = document.getElementById("works");
-  if (works) {
+  const contentEl = works?.querySelector<HTMLElement>(".works-container");
+
+  if (works && contentEl) {
     initPageToFooterAnimations(works);
+    const tl = blurFadeIn({
+      target: contentEl,
+      fromOptions: { y: -5 },
+      toOptions: { y: 0 },
+    });
+    tl.play();
   }
 </script>

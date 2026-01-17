@@ -31,7 +31,7 @@ const optionTxt = cn(
 <WorksLayout>
   <section id="works" class="relative">
     <div
-      class="works-container prev-fade container-base text-main pb-60 opacity-100 md:pb-80 lg:w-4/5 lg:pb-100 xl:pb-140 2xl:w-full 2xl:pb-160"
+      class="works-container prev-fade container-base text-main pb-60 opacity-0 md:pb-80 lg:w-4/5 lg:pb-100 xl:pb-140 2xl:w-full 2xl:pb-160"
     >
       <PageHeader title={post.data.title} sub="Works/" en={true} />
       <ul
@@ -113,10 +113,19 @@ const optionTxt = cn(
 </WorksLayout>
 
 <script>
+  import blurFadeIn from "@/libs/animations/blurFadeIn";
   import initPageToFooterAnimations from "@/libs/animations/initPageToFooterAnimations";
 
   const works = document.getElementById("works");
-  if (works) {
+  const contentEl = works?.querySelector<HTMLElement>(".works-container");
+
+  if (works && contentEl) {
     initPageToFooterAnimations(works);
+    const tl = blurFadeIn({
+      target: contentEl,
+      fromOptions: { y: -5 },
+      toOptions: { y: 0 },
+    });
+    tl.play();
   }
 </script>
