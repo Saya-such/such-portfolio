@@ -31,4 +31,5 @@ export default defineConfig({
       },
     },
   },
+  site: "https://saya-such.github.io/such-portfolio/",
 });
