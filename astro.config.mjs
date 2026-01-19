@@ -7,10 +7,10 @@ const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
 
 // https://astro.build/config
 export default defineConfig({
-  base: isGhPages ? "/such-portfolio/" : "",
-  build: {
-    assetsPrefix: "./",
-  },
+  base: isGhPages ? "/such-portfolio" : "",
+  // build: {
+  //   assetsPrefix: "./",
+  // },
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -31,5 +31,5 @@ export default defineConfig({
       },
     },
   },
-  site: "https://saya-such.github.io/such-portfolio/",
+  site: "https://saya-such.github.io",
 });
