@@ -1,0 +1,59 @@
+---
+import cn from "@/libs/cn";
+import DiamondShape from "@/components/DiamondShape.astro";
+
+interface Props {
+  text: string;
+  link: string;
+  other?: string;
+  subColor?: boolean;
+  lg?: boolean;
+  newTab?: boolean;
+}
+
+const {
+  text,
+  link,
+  other,
+  lg = false,
+  subColor = false,
+  newTab = false,
+} = Astro.props as Props;
+
+const btnStyle = cn("link-btn font-en w-full", other);
+
+const linkStyle = cn(
+  "group/button btn-link relative block m-auto py-4 bg-main rounded-full duration-300 max-w-[400px] text-center md:py-6 md:text-2xl 2xl:text-3xl 2xl:py-8 hover:shadow-2xl",
+  lg ? "w-full text-2xl" : "w-4/5 text-lg",
+  subColor
+    ? "text-main bg-emerald-100 hover:bg-[#e6cde3]"
+    : "text-white bg-main hover:opacity-90",
+);
+
+const decoStyle = cn(
+  "btn-deco pointer-events-none absolute top-1/2 right-3 bottom-1/2 h-9 w-9 -translate-y-1/2 md:h-12 md:w-12 md:right-4",
+);
+
+const circleStyle = cn(
+  "btn-circle pointer-events-none absolute top-0 left-0 h-full w-full rounded-full duration-300 group-hover/button:opacity-60 group-hover/button:scale-125",
+  subColor ? "bg-[#eaedf7]" : "bg-[#9f95a3]",
+);
+---
+
+<div class={btnStyle}>
+  <a
+    href={link}
+    class={linkStyle}
+    target={newTab ? "_blank" : undefined}
+    rel={newTab ? "noopener noreferrer" : undefined}
+  >
+    {text}
+    <div class={decoStyle}>
+      <DiamondShape
+        other="btn-dia absolute inset-0 z-1 duration-300 group-hover/button:scale-90"
+        color={subColor ? "main" : "white"}
+      />
+      <div class={circleStyle}></div>
+    </div>
+  </a>
+</div>

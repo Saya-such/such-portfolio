@@ -1,0 +1,92 @@
+---
+import cn from "@/libs/cn";
+import menuItemData from "@/data/menuItemData";
+import Button from "@/components/Button/index.astro";
+import DiamondShape from "@/components/DiamondShape.astro";
+import Info from "@/components/Info.astro";
+import HeaderMenuButton from "./HeaderMenuButton.astro";
+
+const linkStyle = cn(
+  "group/link font-en relative p-6 duration-300 text-3xl text-white underline md:p-8 md:text-5xl hover:opacity-70",
+);
+---
+
+<div id="menu" class="pointer-events-auto z-10">
+  <button
+    type="button"
+    id="menu-btn"
+    class="menu-btn mr-2.5 inline-grid cursor-pointer grid-cols-1 grid-rows-1 py-1 align-top duration-300 hover:opacity-80 lg:mr-4"
+    aria-expanded="false"
+  >
+    <HeaderMenuButton />
+    <HeaderMenuButton text="CLOSE" other="invisible" />
+  </button>
+  <div
+    id="menu-content"
+    class="bg-main invisible fixed top-0 left-0 -z-1 overscroll-contain opacity-0 duration-450 md:right-0 md:left-auto md:h-screen md:px-10"
+  >
+    <nav
+      class="menu-nav z-100 grid h-screen w-screen max-w-xl grid-rows-9 md:w-[50vw] md:grid-rows-8"
+    >
+      <ul
+        class="menu-list row-start-3 grid h-[85vh] grid-rows-7 px-12 md:row-start-2 md:h-[65vh] md:grid-rows-5 md:px-4"
+      >
+        {
+          menuItemData
+            .filter((item) => !(item.text === "Contact"))
+            .map((item) => (
+              <li class="menu-item">
+                <a
+                  href={item.link}
+                  target={item.blank ? "_blank" : undefined}
+                  class={linkStyle}
+                >
+                  {item.text}
+                  <DiamondShape other="absolute inset-y-0 left-0 duration-500 group-hover/link:scale-75" />
+                </a>
+              </li>
+            ))
+        }
+        {
+          menuItemData
+            .filter((item) => item.text === "Contact")
+            .map((item) => (
+              <>
+                <li class="menu-item _contact row-start-5 self-center md:hidden">
+                  <Button
+                    text={item.text}
+                    link={item.link}
+                    lg={true}
+                    subColor={true}
+                    newTab={true}
+                  />
+                </li>
+                <li class="menu-item hidden md:block">
+                  <a
+                    href={item.link}
+                    class={linkStyle}
+                    target={item.blank ? "_blank" : undefined}
+                  >
+                    {item.text}
+                    <DiamondShape other="absolute inset-y-0 left-0" />
+                  </a>
+                </li>
+              </>
+            ))
+        }
+      </ul>
+    </nav>
+    <Info other="hidden absolute w-[calc(100%-80px)] bottom-7 md:block" />
+  </div>
+  <div
+    id="menu-overlay"
+    class="menu-overlay invisible fixed top-0 left-0 -z-100 hidden h-screen w-screen bg-black opacity-0 duration-300 md:block"
+  >
+  </div>
+</div>
+
+<script>
+  import manageHeaderMenuAnimations from "./manageHeaderMenuAnimations";
+
+  manageHeaderMenuAnimations();
+</script>

@@ -1,0 +1,75 @@
+---
+import cn from "@/libs/cn";
+import Info from "@/components/Info.astro";
+import FooterMenu from "./FooterMenu.astro";
+import FooterSNS from "./FooterSNS.astro";
+
+const thStyle = cn("font-en block text-left pb-1");
+const tdStyle = cn("block pb-2");
+const titStyle = cn("font-en pb-5 text-3xl md:text-4xl md:pb-8");
+---
+
+<footer id="footer" class="bg-main pt-10 text-white lg:pt-20">
+  <div class="footer-container container-base">
+    <div class="footer-top md:flex md:items-end md:justify-between md:pb-20">
+      <section
+        class="footer-sec prof pt-20 md:w-[52%] md:pb-4 md:pl-4 lg:w-[48%]"
+      >
+        <h3 class={titStyle}>Profile</h3>
+        <div
+          class="prof-column flex items-end justify-between pb-8 lg:justify-start"
+        >
+          <img
+            src="/images/footer-prof.jpg"
+            alt="齊藤沙耶"
+            class="w-1/2 max-w-[240px] object-contain opacity-50 shadow-md"
+          />
+          <div class="prof-name w-[45%] lg:pl-8">
+            <p class="font-en pb-1.5 text-2xl">Saya Saito</p>
+            <p class="pb-3.5">齊藤 沙耶</p>
+            <FooterSNS />
+          </div>
+        </div>
+        <table class="prof-table">
+          <tr>
+            <td colspan="2" class="pb-2.5"
+              ><span class="font-en">1993.8.15</span> 生まれ</td
+            >
+          </tr>
+          <tr>
+            <th class={thStyle}>2020.3 ~</th>
+            <td class={tdStyle}
+              >札幌市にてWebデザイナーとして勤務。<br />
+              Webディレクション・Webデザイン・コーディングを行う。</td
+            >
+          </tr>
+          <tr>
+            <th class={thStyle}>2023.1 ~</th>
+            <td class={tdStyle}
+              >独立し、suchを設立。<br />
+              Webデザイン・コーディングを中心に活動中。</td
+            >
+          </tr>
+          <tr>
+            <td colspan="2" class="pt-2.5"
+              >息子のチロル (マメルリハインコ) を溺愛中。<br />
+              暇があれば、一緒にチュッチュ歌ってます<img
+                src="/images/pigeon.png"
+                alt="白い鳥の画像"
+                class="mb-1 ml-1 inline-block h-5 w-5 object-contain"
+              /></td
+            >
+          </tr>
+        </table>
+      </section>
+      <section class="footer-sec menu max-w-lg pt-20 md:w-[43%] lg:w-[48%]">
+        <h3 class={titStyle}>Menu</h3>
+        <FooterMenu />
+      </section>
+    </div>
+    <Info />
+    <p class="copy font-en text-right text-[10px] tracking-wider">
+      2025 ©︎ such
+    </p>
+  </div>
+</footer>

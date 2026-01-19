@@ -1,0 +1,23 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  menu?: boolean;
+  other?: string;
+  color?: string;
+}
+
+const { menu = false, other, color } = Astro.props as Props;
+
+const style = cn(
+  "diamond m-auto block rotate-45 bg-white",
+  menu ? "h-[5px] w-[5px]" : "h-1 w-1",
+  color ? `bg-${color}` : "bg-white",
+  other,
+  "md:h-2 md:w-2",
+);
+---
+
+<span class={style}>
+  <slot />
+</span>

@@ -1,0 +1,25 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  title: string;
+  sub: string;
+  en?: boolean;
+}
+
+const { title, sub, en = false } = Astro.props as Props;
+
+const titleStyle = cn(
+  en ? "font-en text-4xl" : "font-sub text-3xl",
+  "pt-10 font-bold tracking-widest md:pt-12 md:text-5xl lg:text-7xl",
+);
+---
+
+<div class="page-title">
+  <div class="pt-30 lg:pt-40 xl:pt-64">
+    <div class="title-inner text-main relative">
+      <h1 class={titleStyle}>{title}</h1>
+      <p class="font-en absolute top-0 left-1 text-base md:text-lg">{sub}</p>
+    </div>
+  </div>
+</div>

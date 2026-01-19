@@ -1,0 +1,33 @@
+---
+import Button from "@/components/Button/index.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+---
+
+<section id="contact" class="bg-main">
+  <div
+    class="contact-container container-base py-10 md:py-18 xl:pt-0 xl:pb-20 2xl:pb-40"
+  >
+    <SectionTitle
+      title="Contact"
+      sub="お問い合わせ"
+      white={true}
+      others="blurFadeIn opacity-0"
+    />
+    <p class="blurFadeIn text-center text-white opacity-0 lg:pb-16">
+      Webサイト制作にお困りの際は<br
+        class="lg:hidden"
+      />まずはお気軽にご相談ください！<br />
+      お仕事のご依頼の他、<br
+        class="lg:hidden"
+      />外部パートナーとしてのお誘いなども含め<br />
+      ぜひご連絡いただけると嬉しいです！
+    </p>
+    <Button
+      text="Get in Touch"
+      link="#"
+      other="fadeIn opacity-0 py-5"
+      subColor={true}
+      newTab={true}
+    />
+  </div>
+</section>

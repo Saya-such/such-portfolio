@@ -1,0 +1,36 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  id: string;
+  down?: boolean;
+  offset: string;
+}
+
+const { id, down = false, offset } = Astro.props as Props;
+
+const rhomsStyle = cn(
+  "rhoms absolute w-screen left-0 bottom-0 -z-10 overflow-hidden h-auto aspect-4/3 md:aspect-2/1",
+  offset,
+  {
+    "-scale-y-100": down,
+  },
+);
+
+const innerStyle = cn(
+  "rhoms-inner absolute origin-top top-0 left-0 m-[-10px] w-[calc(100vw_+_20px)]",
+);
+
+const imgStyle = (sp: boolean = true) =>
+  cn(
+    "rhoms-img h-full w-full origin-top object-contain align-bottom",
+    sp ? "md:hidden" : "hidden md:block",
+  );
+---
+
+<div id={`rhoms-${id}`} class={rhomsStyle}>
+  <div class={innerStyle}>
+    <img src="/images/rhoms-sp.webp" alt="" class={imgStyle(true)} />
+    <img src="/images/rhoms.webp" alt="" class={imgStyle(false)} />
+  </div>
+</div>

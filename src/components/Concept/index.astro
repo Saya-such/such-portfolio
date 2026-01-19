@@ -1,0 +1,63 @@
+---
+import Rhoms from "@/components/Rhoms.astro";
+---
+
+<section
+  id="concept"
+  class="bg-main relative h-screen w-screen overflow-y-visible"
+>
+  <div
+    class="concept-container container-base fade h-full landscape:md:relative landscape:md:pt-[20vh]"
+  >
+    <div class="concept-content grid h-full grid-rows-3 landscape:md:block">
+      <div id="concept-tit" class="concept-tit self-end">
+        <h1
+          class="text-[28px] text-white md:pb-10 lg:pb-24 lg:text-4xl xl:text-[56px] portrait:md:pb-0 portrait:md:text-[56px]"
+        >
+          <span
+            class="block pb-3 pl-1 tracking-wider lg:pb-11 lg:pl-2.5 lg:text-4xl xl:pb-10 xl:text-5xl portrait:md:pb-12 portrait:md:text-5xl"
+            >小さなカケラから</span
+          >
+          <span
+            class="inline-block pr-2 text-5xl tracking-wider lg:pr-2 lg:text-7xl xl:text-8xl xl:leading-none portrait:md:pr-3 portrait:md:text-8xl"
+            >大きな幸せ</span
+          >を
+        </h1>
+      </div>
+      <div
+        class="concept-txt row-start-3 text-white lg:pl-2 2xl:text-lg portrait:md:self-center portrait:md:text-base portrait:md:leading-8"
+      >
+        <p class="landscape:md:pb-2 landscape:xl:pb-5">
+          <span
+            class="font-en pr-0.75 text-base tracking-wider 2xl:text-xl portrait:md:text-lg"
+            >such</span
+          >として<br class="landscape:md:hidden" />個人でWebサイト制作を<br
+            class="landscape:md:hidden"
+          />行なっています。
+        </p>
+        <p>
+          想いやりの心を大切に、<br
+            class="landscape:md:hidden"
+          />丁寧なお仕事を心がけています。
+        </p>
+      </div>
+    </div>
+    <div
+      id="concept-img"
+      class="concept-img absolute top-3/7 right-1.5 w-3/5 md:top-1/5 md:w-3/7 lg:top-1/6 lg:right-0 xl:w-4/9 2xl:top-1/12 2xl:w-1/2 portrait:md:top-4/9 portrait:md:right-5 portrait:md:w-5/9 portrait:lg:top-7/15 landscape:md:pt-[20vh]"
+    >
+      <img
+        src="/images/hand.png"
+        alt="幸せのカケラを拾う手"
+        class="h-full w-full object-contain"
+      />
+    </div>
+  </div>
+  <Rhoms id="concept" offset="translate-y-10/11 md:translate-y-19/20" />
+</section>
+
+<script>
+  import initConceptAnimations from "./initConceptAnimations";
+
+  initConceptAnimations();
+</script>

@@ -1,0 +1,27 @@
+---
+import HeaderLogo from "./HeaderLogo.astro";
+import HeaderMenu from "./HeaderMenu.astro";
+
+interface Props {
+  color?: "white" | "main";
+}
+---
+
+<header
+  id="header"
+  class="header pointer-events-none fixed top-0 left-0 z-1000 w-screen text-white"
+>
+  <div
+    class="header-container grid [grid-template-columns:1fr_auto] justify-between px-1 py-2 lg:px-2 lg:py-5"
+  >
+    <div
+      id="header-logo"
+      class="header-logo pointer-events-auto h-12 w-12 lg:h-16 lg:w-16"
+    >
+      <a href="/">
+        <HeaderLogo />
+      </a>
+    </div>
+    <HeaderMenu />
+  </div>
+</header>
