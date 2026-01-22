@@ -1,4 +1,5 @@
 ---
+import basePath from "@/libs/basePath";
 import HeaderLogo from "./HeaderLogo.astro";
 import HeaderMenu from "./HeaderMenu.astro";
 
@@ -18,7 +19,7 @@ interface Props {
       id="header-logo"
       class="header-logo pointer-events-auto h-12 w-12 lg:h-16 lg:w-16"
     >
-      <a href="/">
+      <a href={basePath("/")}>
         <HeaderLogo />
       </a>
     </div>
