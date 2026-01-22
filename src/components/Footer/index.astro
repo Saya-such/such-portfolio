@@ -1,5 +1,6 @@
 ---
 import cn from "@/libs/cn";
+import basePath from "@/libs/basePath";
 import Info from "@/components/Info.astro";
 import FooterMenu from "./FooterMenu.astro";
 import FooterSNS from "./FooterSNS.astro";
@@ -20,7 +21,7 @@ const titStyle = cn("font-en pb-5 text-3xl md:text-4xl md:pb-8");
           class="prof-column flex items-end justify-between pb-8 lg:justify-start"
         >
           <img
-            src="/images/footer-prof.jpg"
+            src={basePath("/images/footer-prof.jpg")}
             alt="齊藤沙耶"
             class="w-1/2 max-w-[240px] object-contain opacity-50 shadow-md"
           />
@@ -54,7 +55,7 @@ const titStyle = cn("font-en pb-5 text-3xl md:text-4xl md:pb-8");
             <td colspan="2" class="pt-2.5"
               >息子のチロル (マメルリハインコ) を溺愛中。<br />
               暇があれば、一緒にチュッチュ歌ってます<img
-                src="/images/pigeon.png"
+                src={basePath("/images/pigeon.png")}
                 alt="白い鳥の画像"
                 class="mb-1 ml-1 inline-block h-5 w-5 object-contain"
               /></td

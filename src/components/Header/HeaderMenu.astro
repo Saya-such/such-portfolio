@@ -1,5 +1,6 @@
 ---
 import cn from "@/libs/cn";
+import basePath from "@/libs/basePath";
 import menuItemData from "@/data/menuItemData";
 import Button from "@/components/Button/index.astro";
 import DiamondShape from "@/components/DiamondShape.astro";
@@ -37,7 +38,7 @@ const linkStyle = cn(
             .map((item) => (
               <li class="menu-item">
                 <a
-                  href={item.link}
+                  href={basePath(item.link)}
                   target={item.blank ? "_blank" : undefined}
                   class={linkStyle}
                 >
