@@ -1,4 +1,5 @@
 ---
+import basePath from "@/libs/basePath";
 import footerSNSData from "@/data/footerSNSData";
 ---
 
@@ -7,12 +8,12 @@ import footerSNSData from "@/data/footerSNSData";
     footerSNSData.map((item) => (
       <li class="mr-2">
         <a
-          href={item.link}
+          href={basePath(item.link)}
           target={item.blank ? "_blank" : undefined}
           class="inline-block px-0.5 py-2 opacity-80 transition duration-300 hover:opacity-60"
         >
           <img
-            src={item.icon}
+            src={basePath(item.icon)}
             alt={item.alt}
             class="h-4 w-4 object-contain align-bottom"
           />
