@@ -1,4 +1,5 @@
 ---
+import basePath from "@/libs/basePath";
 import { getCollection } from "astro:content";
 const posts = (await getCollection("works")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -8,9 +9,12 @@ const posts = (await getCollection("works")).sort(
 {
   posts.map((post) => (
     <li class="works-item pb-7 md:pb-12 xl:pb-16 2xl:pb-20">
-      <a href={`/works/${post.id}`} class="group/article text-main block">
+      <a
+        href={basePath(`/works/${post.id}`)}
+        class="group/article text-main block"
+      >
         <img
-          src={post.data.thumbnail}
+          src={basePath(post.data.thumbnail)}
           alt={post.data.title + " | suchの実績"}
           class="aspect-video h-full w-full object-cover drop-shadow-md transition duration-300 group-hover/article:opacity-95 group-hover/article:drop-shadow-xl"
         />
