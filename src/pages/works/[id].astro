@@ -1,4 +1,5 @@
 ---
+import basePath from "@/libs/basePath";
 import cn from "@/libs/cn";
 import WorksLayout from "@/layout/WorksLayout.astro";
 import Button from "@/components/Button/index.astro";
@@ -47,7 +48,7 @@ const optionTxt = cn(
       </ul>
       <div class="thumbnail pb-6 md:pb-10">
         <img
-          src={"../" + post.data.thumbnail}
+          src={basePath(post.data.thumbnail)}
           alt={post.data.title + " | suchの実績"}
           class="aspect-video h-full w-full object-cover drop-shadow-md"
         />
