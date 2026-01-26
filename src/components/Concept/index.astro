@@ -60,5 +60,9 @@ import Rhoms from "@/components/Rhoms.astro";
 <script>
   import initConceptAnimations from "./initConceptAnimations";
 
-  initConceptAnimations();
+  const trigger = document.getElementById("concept");
+
+  if (trigger) {
+    initConceptAnimations(trigger);
+  }
 </script>

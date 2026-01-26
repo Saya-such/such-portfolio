@@ -1,11 +1,7 @@
 import startBlurFadeInOnScroll from "@/libs/animations/startBlurFadeInOnScroll";
 import createConceptImageLoopTimeline from "./createConceptImageLoopTimeline";
 
-const initConceptAnimations = () => {
-  const trigger = document.getElementById("concept");
-
-  if (!trigger) return;
-
+const initConceptAnimations = (trigger: HTMLElement) => {
   const tit = trigger.querySelector<HTMLElement>("#concept-tit");
   const img = trigger.querySelector<HTMLElement>("#concept-img");
 
