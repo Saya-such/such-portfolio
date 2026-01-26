@@ -21,10 +21,6 @@
 }
 
 @layer base {
-  html {
-    scrollbar-gutter: stable;
-  }
-
   p {
     @apply pb-6;
   }
