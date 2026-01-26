@@ -1,11 +1,24 @@
-const logo = document.getElementById("header-logo")?.querySelector("svg");
-const menuOpen = document.getElementById("menu-open");
+const headerEl = document.getElementById("header");
+const menuEl = document.getElementById("menu");
+const logo = headerEl
+  ?.querySelector<HTMLElement>("#header-logo")
+  ?.querySelector("svg");
+const menuOpen = menuEl?.querySelector<HTMLElement>("#menu-open");
 const whiteDia = menuOpen?.querySelector(".dia-white");
 const mainColorDia = menuOpen?.querySelector(".dia-main");
 const menuLabel = menuOpen?.querySelector(".menu-label");
 
 const setHeaderColor = (color: "white" | "main") => {
-  if (!logo || !menuOpen || !whiteDia || !mainColorDia || !menuLabel) return;
+  if (
+    !headerEl ||
+    !menuEl ||
+    !logo ||
+    !menuOpen ||
+    !whiteDia ||
+    !mainColorDia ||
+    !menuLabel
+  )
+    return;
 
   if (color === "main") {
     logo.classList.replace("fill-white", "fill-main");

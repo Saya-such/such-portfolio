@@ -1,21 +1,17 @@
 import createHeaderMenuTimeline from "./createHeaderMenuTimeline";
 
 const manageHeaderMenuAnimations = () => {
-  const buttonEl = document.getElementById("menu-btn");
-  const openBtn = document.getElementById("menu-open");
-  const closeBtn = document.getElementById("menu-close");
-  const menuEl = document.getElementById("menu-content");
-  const overlay = document.getElementById("menu-overlay");
+  const target = document.getElementById("menu");
 
-  if (!buttonEl || !openBtn || !closeBtn || !menuEl || !overlay) return;
+  if (!target) return;
+
+  const buttonEl = target.querySelector<HTMLElement>("#menu-btn");
+  const menuEl = target.querySelector<HTMLElement>("#menu-content");
+
+  if (!buttonEl || !menuEl) return;
 
   let isOpen: boolean = false;
-  const menuTl = createHeaderMenuTimeline({
-    openBtn,
-    closeBtn,
-    menuEl,
-    overlay,
-  });
+  const menuTl = createHeaderMenuTimeline(target);
 
   buttonEl.addEventListener("click", () => {
     if (!isOpen) {
