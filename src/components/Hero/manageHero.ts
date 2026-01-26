@@ -3,9 +3,12 @@ import setupElementHeight from "@/libs/setupElementHeight";
 
 const manageHero = () => {
   const heroEl = document.getElementById("hero");
-  const logoEl = document.getElementById("hero-logo");
 
-  if (!heroEl || !logoEl) return;
+  if (!heroEl) return;
+
+  const logoEl = heroEl.querySelector<HTMLElement>("#hero-logo");
+
+  if (!logoEl) return;
 
   //ロゴのフェードイン
   const tl = blurFadeIn({

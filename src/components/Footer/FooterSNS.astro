@@ -8,7 +8,7 @@ import footerSNSData from "@/data/footerSNSData";
     footerSNSData.map((item) => (
       <li class="mr-2">
         <a
-          href={basePath(item.link)}
+          href={item.link}
           target={item.blank ? "_blank" : undefined}
           class="inline-block px-0.5 py-2 opacity-80 transition duration-300 hover:opacity-60"
         >

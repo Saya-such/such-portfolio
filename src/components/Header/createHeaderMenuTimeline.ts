@@ -4,22 +4,16 @@ const toggleClassName = (el: HTMLElement, style?: string) => {
   el.classList.toggle(style ? style : "invisible");
 };
 
-const createHeaderMenuTimeline = ({
-  openBtn,
-  closeBtn,
-  menuEl,
-  overlay,
-}: {
-  openBtn: HTMLElement;
-  closeBtn: HTMLElement;
-  menuEl: HTMLElement;
-  overlay: HTMLElement;
-}): GSAPTimeline => {
-  const openDeco = openBtn.querySelector(".diamond.animate");
-  const openLabel = openBtn.querySelector(".menu-label");
-  const closeDeco = closeBtn.querySelector(".diamond.animate");
-  const closeLabel = closeBtn.querySelector(".menu-label");
-  const menuNav = menuEl.querySelector(".menu-nav");
+const createHeaderMenuTimeline = (target: HTMLElement): GSAPTimeline => {
+  const openBtn = target.querySelector<HTMLElement>("#menu-open");
+  const closeBtn = target.querySelector<HTMLElement>("#menu-close");
+  const menuEl = target.querySelector<HTMLElement>("#menu-content");
+  const overlay = target.querySelector<HTMLElement>("#menu-overlay");
+  const openDeco = openBtn?.querySelector<HTMLElement>(".diamond.animate");
+  const openLabel = openBtn?.querySelector<HTMLElement>(".menu-label");
+  const closeDeco = closeBtn?.querySelector<HTMLElement>(".diamond.animate");
+  const closeLabel = closeBtn?.querySelector<HTMLElement>(".menu-label");
+  const menuNav = menuEl?.querySelector<HTMLElement>(".menu-nav");
 
   const tl = gsap.timeline({
     paused: true,
@@ -29,7 +23,17 @@ const createHeaderMenuTimeline = ({
     },
   });
 
-  if (!openDeco || !closeDeco || !openLabel || !closeLabel || !menuNav)
+  if (
+    !openBtn ||
+    !closeBtn ||
+    !menuEl ||
+    !overlay ||
+    !openDeco ||
+    !closeDeco ||
+    !openLabel ||
+    !closeLabel ||
+    !menuNav
+  )
     return tl;
 
   tl.fromTo(openLabel, { opacity: 1.0 }, { opacity: 0 });
