@@ -1,12 +1,34 @@
 ---
 title: "My Portfolio"
 description: "suchの実績 | ポートフォリオサイト"
-tags: ["Web Site", "Design", "CMS", "GSAP", "Astro", "Tomato"]
-thumbnail: "/images/such-demo1-caputure.jpg"
-pubDate: "2025-12-16"
+tags: ["Web Site", "CMS"]
+thumbnail: "/images/portfolio-thumb.webp"
+pubDate: "2026-01-28"
 releaseYM:
-  year: 2025
-  month: 12
+  year: 2026
+  month: 01
+role: "Web Design / Front-end"
 ---
 
-<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+当サイト　suchのポートフォリオサイトの紹介です。
+
+## GitHubリポジトリ
+
+<a href="https://github.com/Saya-such/such-portfolio" target="_blank" rel="noopener noreferrer">
+  https://github.com/Saya-such/such-portfolio
+</a>
+
+このポートフォリオでは、フロントエンド開発者としてのsuchの仕事内容を紹介しています。  
+特に以下の点に重点を置いて制作しました。
+
+- シンプルでメンテナンス性の高いUI実装
+- スクロールベースのアニメーションとインタラクション
+- アクセシビリティに配慮したマークアップと動作
+- 再利用性を考慮したコンポーネントベースの構造
+
+## 使用技術
+
+- Framework: Astro v5.14.6
+- Language: TypeScript
+- Styling: Tailwind CSS v4.1.14 + @tailwindcss/vite
+- Animation: GSAP / Lenis
