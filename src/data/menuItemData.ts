@@ -23,7 +23,7 @@ const menuItemData: MenuItemData[] = [
   },
   {
     text: "Contact",
-    link: "#",
+    link: "https://forms.gle/uVwHqiTFuvk3nnr78",
     blank: true,
   },
 ];
