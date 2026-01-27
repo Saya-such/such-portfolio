@@ -40,6 +40,7 @@ const linkStyle = cn(
                 <a
                   href={basePath(item.link)}
                   target={item.blank ? "_blank" : undefined}
+                  rel={item.blank ? "noopener noreferrer" : undefined}
                   class={linkStyle}
                 >
                   {item.text}
@@ -67,6 +68,7 @@ const linkStyle = cn(
                     href={item.link}
                     class={linkStyle}
                     target={item.blank ? "_blank" : undefined}
+                    rel={item.blank ? "noopener noreferrer" : undefined}
                   >
                     {item.text}
                     <DiamondShape other="absolute inset-y-0 left-0" />
