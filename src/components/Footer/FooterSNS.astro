@@ -10,6 +10,7 @@ import footerSNSData from "@/data/footerSNSData";
         <a
           href={item.link}
           target={item.blank ? "_blank" : undefined}
+          rel={item.blank ? "noopener noreferrer" : undefined}
           class="inline-block px-0.5 py-2 opacity-80 transition duration-300 hover:opacity-60"
         >
           <img
