@@ -18,6 +18,26 @@
   .container-base {
     @apply mx-auto max-w-[1280px] px-6 md:w-6/7 md:px-0;
   }
+
+  .works-content p {
+    @apply lg:mb-3;
+  }
+
+  .works-content h2 {
+    @apply mb-2 text-base font-bold lg:text-xl;
+  }
+
+  .works-content a {
+    @apply mb-6 inline-block underline duration-300 lg:mb-9;
+  }
+
+  .works-content a:hover {
+    @apply opacity-70;
+  }
+
+  .works-content ul {
+    @apply mb-7 list-inside list-disc lg:mb-9;
+  }
 }
 
 @layer base {
