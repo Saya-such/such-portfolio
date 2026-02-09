@@ -15,6 +15,7 @@ const works = defineCollection({
     description: z.string(),
     tags: z.array(z.string()).default([]),
     thumbnail: z.string(),
+    summary: z.string(),
     url: z.string().optional(),
     pubDate: z.coerce.date(),
     releaseYM: z

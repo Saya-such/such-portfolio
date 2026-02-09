@@ -4,6 +4,16 @@ import basePath from "@/libs/basePath";
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Main from "@/components/Main.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  type?: "website" | "article";
+}
+
+const { title, description, type = "article" } = Astro.props as Props;
+
+const ogpImagePath = basePath("/images/portfolio-thumb.webp");
 ---
 
 <!doctype html>
@@ -17,13 +27,13 @@ import Main from "@/components/Main.astro";
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href={basePath("/sitemap-index.xml")} />
     <SEO
-      title="such | Web Design & Frontend Development"
-      description="suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。"
+      title={title}
+      description={description}
       openGraph={{
         basic: {
-          title: "such | Web Design & Frontend Development",
-          type: "website",
-          image: "./images/portfolio-thumb.webp",
+          title,
+          type,
+          image: ogpImagePath,
         },
       }}
       twitter={{
@@ -34,7 +44,7 @@ import Main from "@/components/Main.astro";
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "such | Web Design & Frontend Development",
+        "name": "such | Frontend Development",
         "description": "suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。",
         "creator": {
           "@type": "Person",
