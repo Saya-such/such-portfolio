@@ -1,8 +1,19 @@
 ---
+import { SEO } from "astro-seo";
 import basePath from "@/libs/basePath";
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Main from "@/components/Main.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  ogpType?: "website" | "article";
+}
+
+const { title, description, ogpType = "article" } = Astro.props as Props;
+
+const ogpImagePath = basePath("/images/portfolio-thumb.webp");
 ---
 
 <!doctype html>
@@ -15,6 +26,45 @@ import Main from "@/components/Main.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href={basePath("/sitemap-index.xml")} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: ogpType,
+          image: ogpImagePath,
+        },
+      }}
+      twitter={{
+        creator: "@Chaya0815",
+      }}
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://such-web.com/#website",
+            "name": "such | Frontend Development",
+            "description": "suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。",
+            "creator": {
+              "@type": "Person",
+              "name": "Saya Saito"
+            },
+            "dateCreated": "2026-02-09",
+            "url": "https://such-web.com/"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://such-web.com/#organization",
+            "name": "such",
+            "url": "https://such-web.com/"
+          }
+        ]
+      }
+    </script>
     <!-- fonts -->
     <script>
       (function (d) {

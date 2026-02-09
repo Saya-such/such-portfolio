@@ -1,8 +1,40 @@
 ---
+import { SEO } from "astro-seo";
 import basePath from "@/libs/basePath";
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Main from "@/components/Main.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = "/images/portfolio-thumb.webp",
+  article = false,
+} = Astro.props as Props;
+
+const imagePath = basePath(image);
+
+const worksSchema = article ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": title,
+  "description": description,
+  "author": { "@id": "https://such-web.com/#organization" }
+} : {
+  "@type": "CreativeWork",
+  "@id": `https://such-web.com/#work`,
+  "name": title,
+  "escription": description,
+  "creator": { "@id": "https://such-web.com/#organization" },
+  "url": "https://such-web.com/#work"
+};
 ---
 
 <!doctype html>
@@ -15,6 +47,47 @@ import Main from "@/components/Main.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href={basePath("/sitemap-index.xml")} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: "article",
+          image: imagePath,
+        },
+      }}
+      twitter={{
+        creator: "@Chaya0815",
+      }}
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://such-web.com/#website",
+            "name": "such | Frontend Development",
+            "description": "suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。",
+            "creator": {
+              "@type": "Person",
+              "name": "Saya Saito"
+            },
+            "dateCreated": "2026-02-09",
+            "url": "https://such-web.com/"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://such-web.com/#organization",
+            "name": "such",
+            "url": "https://such-web.com/"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(worksSchema)}>
+    </script>
     <!-- fonts -->
     <script>
       (function (d) {
