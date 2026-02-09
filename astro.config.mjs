@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 //開発モードか公開用(GitHub Pages)か判別
 const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
@@ -28,5 +29,6 @@ export default defineConfig({
       },
     },
   },
-  site: "https://saya-such.github.io",
+  site: "https://such-web.com",
+  integrations: [sitemap()],
 });
