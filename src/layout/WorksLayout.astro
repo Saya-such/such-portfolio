@@ -19,6 +19,8 @@ const {
   article = false,
 } = Astro.props as Props;
 
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
 const imagePath = basePath(image);
 
 const worksSchema = article ? {
@@ -50,6 +52,7 @@ const worksSchema = article ? {
     <SEO
       title={title}
       description={description}
+      canonical={canonical}
       openGraph={{
         basic: {
           title,
