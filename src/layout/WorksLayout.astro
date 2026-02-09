@@ -9,15 +9,32 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  article?: boolean;
 }
 
 const {
   title,
   description,
   image = "/images/portfolio-thumb.webp",
+  article = false,
 } = Astro.props as Props;
 
 const imagePath = basePath(image);
+
+const worksSchema = article ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": title,
+  "description": description,
+  "author": { "@id": "https://such-web.com/#organization" }
+} : {
+  "@type": "CreativeWork",
+  "@id": `https://such-web.com/#work`,
+  "name": title,
+  "escription": description,
+  "creator": { "@id": "https://such-web.com/#organization" },
+  "url": "https://such-web.com/#work"
+};
 ---
 
 <!doctype html>
@@ -47,16 +64,29 @@ const imagePath = basePath(image);
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "CreativeWork",
-        "name": "Works(制作実績) | such - Frontend Development",
-        "description": "Web制作・フロントエンド実装の制作実績一覧ページです。",
-        "creator": {
-          "@type": "Person",
-          "name": "Saya Saito"
-        },
-        "dateCreated": "2026-02-02",
-        "url": "https://such-web.com/"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://such-web.com/#website",
+            "name": "such | Frontend Development",
+            "description": "suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。",
+            "creator": {
+              "@type": "Person",
+              "name": "Saya Saito"
+            },
+            "dateCreated": "2026-02-09",
+            "url": "https://such-web.com/"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://such-web.com/#organization",
+            "name": "such",
+            "url": "https://such-web.com/"
+          }
+        ]
       }
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(worksSchema)}>
     </script>
     <!-- fonts -->
     <script>
