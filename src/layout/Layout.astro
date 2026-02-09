@@ -13,6 +13,8 @@ interface Props {
 
 const { title, description, ogpType = "article" } = Astro.props as Props;
 
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
 const ogpImagePath = basePath("/images/portfolio-thumb.webp");
 ---
 
@@ -29,6 +31,7 @@ const ogpImagePath = basePath("/images/portfolio-thumb.webp");
     <SEO
       title={title}
       description={description}
+      canonical={canonical}
       openGraph={{
         basic: {
           title,
