@@ -16,7 +16,6 @@ const {
   title,
   description,
   image = "/images/portfolio-thumb.webp",
-  article = false,
 } = Astro.props as Props;
 
 const PROD_SITE = new URL("https://such-web.com/");
@@ -27,21 +26,6 @@ if (!path.endsWith("/")) path += "/";
 const canonical = new URL(path, PROD_SITE).href;
 
 const imagePath = basePath(image);
-
-const worksSchema = article ? {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "name": title,
-  "description": description,
-  "author": { "@id": "https://such-web.com/#organization" }
-} : {
-  "@type": "CreativeWork",
-  "@id": `https://such-web.com/#work`,
-  "name": title,
-  "escription": description,
-  "creator": { "@id": "https://such-web.com/#organization" },
-  "url": "https://such-web.com/#work"
-};
 ---
 
 <!doctype html>
@@ -93,8 +77,6 @@ const worksSchema = article ? {
           }
         ]
       }
-    </script>
-    <script type="application/ld+json" set:html={JSON.stringify(worksSchema)}>
     </script>
     <!-- fonts -->
     <script>
