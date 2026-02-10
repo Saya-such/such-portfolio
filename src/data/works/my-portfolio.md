@@ -7,7 +7,7 @@ summary: "当サイト suchのポートフォリオサイトについての紹�
 pubDate: "2026-01-28"
 releaseYM:
   year: 2026
-  month: 01
+  month: 02
 role: "Web Design / Front-end"
 ---
 
