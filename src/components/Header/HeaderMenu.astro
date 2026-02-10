@@ -2,7 +2,6 @@
 import cn from "@/libs/cn";
 import basePath from "@/libs/basePath";
 import menuItemData from "@/data/menuItemData";
-import Button from "@/components/Button/index.astro";
 import DiamondShape from "@/components/DiamondShape.astro";
 import Info from "@/components/Info.astro";
 import HeaderMenuButton from "./HeaderMenuButton.astro";
@@ -53,28 +52,24 @@ const linkStyle = cn(
           menuItemData
             .filter((item) => item.text === "Contact")
             .map((item) => (
-              <>
-                <li class="menu-item _contact row-start-5 self-center md:hidden">
-                  <Button
-                    text={item.text}
-                    link={item.link}
-                    lg={true}
-                    subColor={true}
-                    newTab={true}
-                  />
-                </li>
-                <li class="menu-item hidden md:block">
-                  <a
-                    href={item.link}
-                    class={linkStyle}
-                    target={item.blank ? "_blank" : undefined}
-                    rel={item.blank ? "noopener noreferrer" : undefined}
-                  >
-                    {item.text}
-                    <DiamondShape other="absolute inset-y-0 left-0" />
-                  </a>
-                </li>
-              </>
+              <li class="menu-item _contact row-start-5 self-center md:row-start-auto md:self-start">
+                <a
+                  href={item.link}
+                  class="group/button group/link btn-link font-en text-main relative m-auto block w-full max-w-[400px] rounded-full bg-emerald-100 py-4 text-center text-2xl duration-300 hover:bg-[#e6cde3] hover:opacity-70 hover:shadow-2xl md:m-0 md:inline md:bg-transparent md:p-8 md:text-left md:text-white md:underline md:hover:bg-transparent md:hover:shadow-none 2xl:text-5xl"
+                  target={item.blank ? "_blank" : undefined}
+                  rel={item.blank ? "noopener noreferrer" : undefined}
+                >
+                  {item.text}
+                  <div class="btn-deco pointer-events-none absolute top-1/2 right-3 bottom-1/2 h-9 w-9 -translate-y-1/2 md:right-4 md:hidden md:h-12 md:w-12">
+                    <DiamondShape
+                      other="btn-dia absolute inset-0 z-1 duration-300 group-hover/button:scale-90"
+                      color="main"
+                    />
+                    <div class="btn-circle pointer-events-none absolute top-0 left-0 h-full w-full rounded-full bg-[#eaedf7] duration-300 group-hover/button:scale-125 group-hover/button:opacity-60" />
+                  </div>
+                  <DiamondShape other="absolute inset-y-0 left-0 hidden duration-500 md:block group-hover/link:scale-75" />
+                </a>
+              </li>
             ))
         }
       </ul>
