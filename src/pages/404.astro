@@ -1,0 +1,25 @@
+---
+import basePath from "@/libs/basePath";
+import WorksLayout from "@/layout/WorksLayout.astro";
+import Button from "@/components/Button/index.astro";
+import PageHeader from "@/components/PageHeader/index.astro";
+---
+
+<WorksLayout
+  title="404 | such - Frontend Development"
+  description="suchは、フロントエンド実装を軸に、デザイン意図を大切にしたWeb制作を行っています。アニメーションやアクセシビリティにも配慮した実装事例をポートフォリオとして掲載しています。"
+>
+  <section>
+    <div
+      class="container-base text-main pb-60 md:pb-80 lg:w-4/5 lg:pb-100 xl:pb-140 2xl:w-full 2xl:pb-160"
+    >
+      <PageHeader title="Page not found" sub="404" />
+      <p class="py-15 text-center md:py-30">ページが見つかりませんでした。</p>
+      <Button
+        text="Go back to home"
+        link={basePath("/")}
+        other="fade my-3 opacity-100 duration-300 md:my-0"
+      />
+    </div>
+  </section>
+</WorksLayout>
