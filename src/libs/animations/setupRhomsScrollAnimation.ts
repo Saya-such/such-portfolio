@@ -4,6 +4,7 @@ import runNextFadeInAllAnimations from "@/libs/animations/runNextFadeInAllAnimat
 import { setupNextFadeInAllAnimations } from "@/libs/animations/runNextFadeInAllAnimations";
 import setBgColor from "@/libs/animations/setBgColor";
 import setHeaderColor from "@/libs/animations/setHeaderColor";
+import syncBgColorOnFocus from "@/libs/syncBgColorOnFocus";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,6 +154,10 @@ const setupRhomsScrollAnimation = ({
       }
     },
   });
+
+  if (!isConcept) {
+    syncBgColorOnFocus(next);
+  }
 };
 
 export default setupRhomsScrollAnimation;
