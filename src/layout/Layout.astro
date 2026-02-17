@@ -20,8 +20,7 @@ if (base && path.startsWith(base)) path = path.slice(base.length) || "/";
 if (!path.endsWith("/")) path += "/";
 const canonical = new URL(path, PROD_SITE).href;
 
-const ogpImagePath = basePath("/images/portfolio-thumb.webp");
-const xImagePath = basePath("/images/portfolio-thumb.jpg");
+const ogpImagePath = "https://such-web.com/images/portfolio-thumb.jpg";
 ---
 
 <!doctype html>
@@ -80,7 +79,7 @@ const xImagePath = basePath("/images/portfolio-thumb.jpg");
       }}
       twitter={{
         card: "summary",
-        image: xImagePath,
+        image: ogpImagePath,
         creator: "@Chaya0815",
       }}
     />
