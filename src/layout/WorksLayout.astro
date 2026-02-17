@@ -31,10 +31,43 @@ const imagePath = basePath(image);
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "ivw1jas",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
     <link rel="icon" href={basePath("/images/favicon.ico")} sizes="32x32" />
     <link rel="icon" href={basePath("/images/icon.svg")} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={basePath("/images/icon.png")} />
-    <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href={basePath("/sitemap-index.xml")} />
     <SEO
@@ -77,38 +110,6 @@ const imagePath = basePath(image);
         ]
       }
     </script>
-    <!-- fonts -->
-    <script>
-      (function (d) {
-        var config = {
-            kitId: "ivw1jas",
-            scriptTimeout: 3000,
-            async: true,
-          },
-          h = d.documentElement,
-          t = setTimeout(function () {
-            h.className =
-              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-          }, config.scriptTimeout),
-          tk = d.createElement("script"),
-          f = false,
-          s = d.getElementsByTagName("script")[0],
-          a;
-        h.className += " wf-loading";
-        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-        tk.async = true;
-        tk.onload = tk.onreadystatechange = function () {
-          a = this.readyState;
-          if (f || (a && a != "complete" && a != "loaded")) return;
-          f = true;
-          clearTimeout(t);
-          try {
-            Typekit.load(config);
-          } catch (e) {}
-        };
-        s.parentNode.insertBefore(tk, s);
-      })(document);
-    </script>
   </head>
   <body
     class="font-primary h-screen w-screen overflow-x-hidden text-sm leading-loose tracking-widest lg:text-base 2xl:text-lg"
@@ -125,9 +126,14 @@ const imagePath = basePath(image);
       class="page-bg fixed top-0 left-0 -z-100 h-screen w-screen"
     >
       <img
+        src={basePath("/images/bg-sp.webp")}
+        alt=""
+        class="h-full w-full object-cover md:hidden"
+      />
+      <img
         src={basePath("/images/bg.webp")}
         alt=""
-        class="h-full w-full object-cover"
+        class="hidden h-full w-full object-cover md:block"
       />
     </div>
 
