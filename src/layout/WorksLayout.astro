@@ -126,9 +126,14 @@ const imagePath = basePath(image);
       class="page-bg fixed top-0 left-0 -z-100 h-screen w-screen"
     >
       <img
+        src={basePath("/images/bg-sp.webp")}
+        alt=""
+        class="h-full w-full object-cover md:hidden"
+      />
+      <img
         src={basePath("/images/bg.webp")}
         alt=""
-        class="h-full w-full object-cover"
+        class="hidden h-full w-full object-cover md:block"
       />
     </div>
 
