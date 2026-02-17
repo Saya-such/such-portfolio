@@ -8,14 +8,9 @@ import Main from "@/components/Main.astro";
 interface Props {
   title: string;
   description: string;
-  image?: string;
 }
 
-const {
-  title,
-  description,
-  image = "/images/portfolio-thumb.webp",
-} = Astro.props as Props;
+const { title, description } = Astro.props as Props;
 
 const PROD_SITE = new URL("https://such-web.com/");
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -24,8 +19,7 @@ if (base && path.startsWith(base)) path = path.slice(base.length) || "/";
 if (!path.endsWith("/")) path += "/";
 const canonical = new URL(path, PROD_SITE).href;
 
-const imagePath = basePath(image);
-const xImagePath = basePath("/images/portfolio-thumb.jpg");
+const imagePath = "https://such-web.com/images/portfolio-thumb.jpg";
 ---
 
 <!doctype html>
@@ -84,7 +78,7 @@ const xImagePath = basePath("/images/portfolio-thumb.jpg");
       }}
       twitter={{
         card: "summary",
-        image: xImagePath,
+        image: imagePath,
         creator: "@Chaya0815",
       }}
     />
