@@ -18,9 +18,16 @@ const posts = (await getCollection("works")).sort(
           alt={post.data.title + " | suchの実績"}
           class="aspect-video h-full w-full object-cover drop-shadow-md transition duration-300 group-hover/article:opacity-95 group-hover/article:drop-shadow-xl"
         />
-        <p class="font-en px-2 pt-3 text-lg transition duration-300 group-hover/article:opacity-70 md:py-6 md:text-3xl md:tracking-widest 2xl:py-10">
+        <p class="font-en px-2 pt-3 pb-1 text-lg transition duration-300 group-hover/article:opacity-70 md:pt-6 md:pb-4 md:text-3xl md:tracking-widest lg:pt-7 lg:pb-5 2xl:pt-10 2xl:pb-7">
           {post.data.title}
         </p>
+        <ul class="tags-list flex flex-wrap gap-2 px-2 pt-1 pb-5 duration-300 group-hover/article:opacity-70 md:pb-8">
+          {post.data.tags.map((tag) => (
+            <li class="font-en bg-main p-1 text-xs leading-none text-white md:px-2 md:py-1.5 md:text-base">
+              {tag}
+            </li>
+          ))}
+        </ul>
       </a>
     </li>
   ))
