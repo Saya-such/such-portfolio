@@ -1,7 +1,7 @@
 ---
 title: "My Portfolio"
 description: "suchの実績 | ポートフォリオサイト"
-tags: ["Web Site", "CMS"]
+tags: ["Web Site", "CMS", "Astro", "GSAP"]
 thumbnail: "/images/portfolio-thumb.webp"
 summary: "当サイト suchのポートフォリオサイトについての紹介ページです。このWebサイトでは、フロントエンド開発者としてのsuchの仕事内容を紹介しています。"
 pubDate: "2026-01-28"
