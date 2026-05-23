@@ -1,7 +1,7 @@
 ---
 title: "My Portfolio"
 description: "suchの実績 | ポートフォリオサイト"
-tags: ["Web Site", "CMS", "Astro", "GSAP"]
+tags: ["Web Site", "Astro", "GSAP"]
 thumbnail: "/images/portfolio-thumb.webp"
 summary: "当サイト suchのポートフォリオサイトについての紹介ページです。このWebサイトでは、フロントエンド開発者としてのsuchの仕事内容を紹介しています。"
 pubDate: "2026-01-28"
@@ -26,6 +26,7 @@ role: "Web Design / Front-end"
 - スクロールベースのアニメーションとインタラクション
 - アクセシビリティに配慮したマークアップと動作
 - 再利用性を考慮したコンポーネントベースの構造
+- AstroのContent collectionsを用いて、Markdownベースで簡単に記事を追加・更新できる構成を設計
 
 ## 使用技術
 
