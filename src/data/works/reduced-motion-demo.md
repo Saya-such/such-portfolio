@@ -1,7 +1,7 @@
 ---
 title: "Reduced Motion Hero Demo"
 description: "suchの実績 | Reduced Motion Hero Demo"
-tags: ["Demo", "React", "GSAP", "Accesibility"]
+tags: ["Demo", "React", "GSAP", "Accessibility"]
 thumbnail: "/images/reduced-motion_thumb.jpg"
 summary: "ReactとGSAPを使用して、reduced motionに対応したヒーローアニメーションのデモを制作しました。OS設定と画面上のトグル操作を共存させ、ユーザーの環境設定を優先しながら挙動を確認できる構成にしています。"
 url: "https://reduced-motion-hero-demo.netlify.app/"
