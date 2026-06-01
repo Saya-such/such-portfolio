@@ -1,7 +1,7 @@
 ---
 title: "△△ inc. (Demo)"
 description: "suchの実績 | 架空広告代理店△△ inc.のコーポレートサイトのトップページを想定した Astro × GSAPを使用したデモページです。"
-tags: ["Demo", "Astro", "GSAP", "Accesibility"]
+tags: ["Demo", "Astro", "TypeScript", "GSAP", "Accessibility"]
 thumbnail: "/images/such-demo1-thumb.webp"
 summary: "架空広告代理店△△ inc.のコーポレートサイトのトップページを想定したデモページを作成しました。デザインから実装まで自作し、アニメーション表現やアクセシビリティへの配慮を取り入れています。"
 url: "https://saya-such.github.io/such-demo1/"
